@@ -1,0 +1,44 @@
+%Preamble
+\documentclass[fleqn, 12pt, a4paper]{article}
+
+
+\usepackage[top=3cm, right=2cm, bottom=2.5cm, left=2cm]{geometry}
+\usepackage{import}
+\usepackage[unicode]{hyperref}
+\usepackage[final]{pdfpages}
+\usepackage{selinput}
+
+
+\hypersetup{linktocpage}
+
+\subimport{../../latex/}{mathematics.tex}
+
+\SelectInputMappings{
+adieresis={ä},
+germandbls={ß}
+}
+
+\usepackage{setspace}
+\setstretch{1.3}
+\setlength\parindent{0pt}
+
+%Document
+\begin{document}
+	\pagenumbering{roman}
+	\pagenumbering{arabic}
+
+
+	\begin{center}
+	{\Large{\bfseries{Logik und diskrete Stukturen}}}\\[0.5cm]
+	{\large{\bfseries{Felix (2807144) \& Philipp (2583572) Müller}}}\\[0.4cm]
+	WS 14/15
+	\end{center}
+
+
+	% import new solutions here
+	\subimport{solutions/}{2.tex}
+
+
+
+
+\end{document}

@@ -1,0 +1,62 @@
+\section*{Blatt 2}
+
+	\subsection*{Aufgabe 1}
+
+	\begin{equation}
+		\lnot \left[B \land ((A \lor B) \land \lnot(A \lor C))\right] \iff \lnot (B \land (A \veebar C))
+	\end{equation}
+
+	\subsection*{Aufgabe 2}
+
+	Induktionsanfang: $n=0$ \\
+	\begin{align}
+		x^{0} &= \frac{x^1 - 1}{x - 1} \\
+		1 &= 1
+	\end{align}
+
+	Induktionsschritt: $n \to n+1$ \\
+
+	\begin{align}
+		\sum_{i=0}^{n+1} x^{i} &= \frac{x^{(n+1)+1} -1}{x-1} \\
+		\bp{\sum_{i=0}^{n} x^{i}} + x^{n+1} &= \frac{x^{n+2} - 1}{x-1} \\
+		\underbrace{\to}_{\text{I.A.}} \frac{x^{n+1} - 1}{x-1} + x^{n+1} &= \frac{x^{n+2}-1}{x-1} \\
+		\frac{x^{n+1} - 1}{x-1} &= \frac{x^{n+2} -1}{x-1} - x^{n+1} \\
+		x^{n+1} - 1 &= x^{n+2} - 1 - (x-1)x^{n+1} \\
+						 		&= x^{n+2} - 1 - (x^{n+2} - x^{n+1}) \\
+						 		&= x^{n+2} - 1 - x \\
+						 		&= x^{n+1} - 1  \hspace{5ex} \blacksquare
+	\end{align}
+
+	\subsection*{Aufgabe 3}
+
+	Induktionsanfang: $n=1$ \\
+	\begin{align}
+		1 \cdot x^1 &= (1-1) \cdot 2^{1+1} + 2 \\
+		2 &= 2
+	\end{align}
+
+	Induktionsschritt: $n \to n+1$ \\
+
+	\begin{align}
+		\sum_{i=0}^{n+1} i \cdot 2^{i} &= n \cdot 2^{n+2} + 2 \\
+		\underbrace{\to}_{\text{I.A.}} (n-1) \cdot 2^{n+1} + 2 + (n+1) \cdot 2{n+1} &= n \cdot 2^{n+2} + 2 \\
+		(n-1+n+1) \cdot 2^{n+1} &= n \cdot 2^{n+2} \\
+		2n \cdot 2^{n+1} &= 2n \cdot 2^{n+1} \hspace{5ex} \blacksquare
+	\end{align}
+
+
+	\subsection*{Aufgabe 4 (a)}
+
+	\begin{enumerate}
+		\item $ \forall x  \in \R : x \in \Q  \implies \sqrt{x} \in \Q $
+		\item $ \exists n \in \N \land n \geq 3 \land x, y, z \in \Z : x^n + y^n = z^n $
+	\end{enumerate}
+
+
+	\subsection*{Aufgabe 4 (b)}
+
+	\begin{enumerate}
+		\item $ \exists x  \notin \R : x \in \Q  \notimplies \sqrt{x} \in \Q $
+		\item $ \forall n \in \N \lor n \le 3 \lor x, y, z \notin \Z : x^n + y^n \neq z^n $
+	\end{enumerate}
+
