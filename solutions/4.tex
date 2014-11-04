@@ -45,19 +45,47 @@ so wird durch $g([a]_{\sim}) = f(a)$ für alle $a \in A$ eine Abbildung $g : C \
 jedes $a \in A$ zu genau einem Element $b \in B$ in Relation steht. Um anzudeuten, dass $f$ eine Abbildung ist, schreiben wir $f: A \to B$ [...]
   \end{definition}
 
-  Es muss also gezeigt werden, dass jedes $c \in C$ mit einem $b \in B$ in Relation steht. Wir betrachten $ g: [a] \to f(a) $ mit $f(a)$.  $f$ ist funktional fast äquivalent zu $p$, nur nicht bidirektional. Da wir uns aber nur für $g: C \to B$ interessieren ist dies keine Einschränkung. Damit gilt auch $C \subseteq B$. Weil $f$ ein eindirektionales $p$ ist auch, dass $g([a]_{\sim}) = f(a)$ für alle $a\in A$ mit $g: C \to B$.
-
-
-
+  Es muss also gezeigt werden, dass jedes $c \in C$ mit einem $b \in B$ in Relation steht.
+  Wir betrachten $ g: [a] \to f(a) $ mit $f(a)$.  $f$ ist funktional fast äquivalent zu $p$, nur nicht bidirektional.
+  Da wir uns aber nur für $g: C \to B$ interessieren ist dies keine Einschränkung.
+  Damit gilt auch $C \subseteq B$.
+  Weil $f$ ein eindirektionales $p$ ist gilt auch,
+  dass $g([a]_{\sim}) = f(a)$
+  für alle $a\in A$ mit $g:C\to B.$
   \end{enumerate}
 
   \subsection*{Aufgabe 2}
 
   \begin{enumerate}[a)]
     \item Beschreiben Sie für die Äquivalenzrelationen aus Aufgabe 2.a) und 2.c) vom Übungsblatt 3 die Äquivalenzklassen.
-      \begin{enumerate}
-        \item
+      \begin{enumerate}[i)]
+        \item 2.a) $\abs{a} = \abs{b}$. Daher beispielsweise $[1] = \{-1, 1\}$ und $[2] = [-2, 2]$ Es gilt allgemein $[a] = \{ -a, a \} \; \forall a$.
+
+        \item 2.c) $\{  (a,b) \in \Z \times \Z \given {\exists z \in \Z: \; a-b = z \cdot p}  \}$, für ein $p \in \N$.
+
+        Für $z = 1, \; p=1$ findet man $[2] = \{1\}$ sowie $[3] = \{2\}$ usw. Allgemein gilt für hiermit $[n] = \{n-1\}$ für $n \in \Z$. Ebenso $[n] = n-p$ für $z$ fix und analog für $p$.
+
+
       \end{enumerate}
+
+
+    \item Bestimmen Sie folgende Äquivalenzklassen:
+
+    \begin{enumerate}[i)]
+      \item $[42] \oplus_{47} [276]$\\
+      Aus \url{http://www.roeglin.org/teaching/WS2012/LuDS/LuDS.pdf}{ \textbf{2.17.}}:
+
+      \begin{definition}$[a] \oplus_{n} [b] = [a + b]_n$
+      \end{definition}
+      Daher suchen wir $[42 + 276]_47 = [318]_47$ Rest ist 36, daher gilt $[318]_47 = \{ x \, \text{mod} \, 47 = 36 \iff x = 47n + 36, \; n \in \Z  \} $
+
+      \item $ [7] \odot_11 [19] $. Es folgt wieder $ [7 \cdot 19]_11 = [133]_11 $, Rest ist 1, daher gilt
+
+      $ [133]_11 = \{\ x = 11n + 1, \; n \in \Z \iff [1] \; \text{mit} \; \equiv_{3} \} $.
+
+
+
+    \end{enumerate}
   \end{enumerate}
 
 
