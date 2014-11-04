@@ -1,0 +1,64 @@
+\section*{Blatt 4}
+
+	\subsection*{Aufgabe 1}
+  $R$ ist eine Äquivalenzrelation $\iff$ $R$ ist \emph{reflexiv}, \emph{symmetrisch} und \emph{transitiv}.
+  \begin{enumerate}[a)]
+  \item $R: \forall a_1,a_2 \in A: (a_1 \sim a_2 \iff f(a_1)=f(a_2))$ ist Äquivalenzrelation. \\
+
+    \begin{enumerate}[i)]
+      \item reflexiv: $\forall a \in M: aRa$. Es gilt $a_1 \sim a_2 \iff f(a_1) = f(a_2) \checkmark$
+      %
+      \item symmetrisch: $ \forall a, b \in M: (aRb \implies bRa)$. \\
+      %
+      \[ aRb \implies a \sim b \iff f(a) = f(b) \implies f(b) = f(a) \iff b \sim a \iff bRa  \checkmark \]
+      %
+      \item transitiv: $ \forall a,b,c \in M: ((aRb \land bRc) \implies aRc)  $:\\
+      \[  (aRb \implies a \sim b \iff f(a) = f(b)) \land (bRc \implies b \sim c \iff f(b) = f(c))  \]
+      Wegen $f(a) = f(b)$ und $f(b) = f(c)$ gilt $f(a)=f(c)$ und somit $a \sim c \iff aRc$. $\checkmark$ \\
+      %
+      Somit ist $R$ Äquivalenzrelation.
+      %
+    \end{enumerate}
+    %
+  \item Ist $\sim$ eine beliebige Äquivalenzrelation auf $A$ und ist $C = \{a_{\sim} \given{ a \in A} \}$ die Menge der Äquivalenzklassen von $\sim$, so gibt es eine Abbildung $p: A \to C$, so dass für alle $a_1, a_2 \in A$:\\
+    \[a_1 \sim a_2 \iff p(a_1) = p(a_2)\]
+    %
+    %
+  Da $\sim$ eine Äquivalenzrelation auf $A$ ist, ist sie reflexiv, symmetrisch und transitiv. Weil in $C$ alle Äquivalenzklassen von $\sim$ enthalten sind, welche aufgrund der Definition der Äquivalenzrelation o.g. Eigenschaften besitzen musst es für zwei Elemente $a, b$, welche $a \sim b$ erfüllen auch solche $p(a), p(b) \in C$ geben, so dass $p(a) = p(b)$ gilt. \\
+  %
+  Die Äquivalenzklassen zu zwei Elementen sind entweder gleich oder disjunkt, ersteres genau dann, wenn die Elemente äquivalent sind. Es gilt:
+  %
+  \[ [a_1] = [a_2] \iff a_1 \sim a_2 \iff a_1 \in [a_2] \iff a_2 \in [a_1]   \]
+  %
+  Somit sind beide Inklusionen gezeigt.
+    %
+  \item Seien $\sim$ und $C$ wie in Aufgabenteil \textbf{b)}. Ist $f : A \to B$ eine Abbildung und gilt $\forall a_1,a_2 \in A: (a_1 \sim a_2 \implies f(a_1)=f(a_2))$
+so wird durch $g([a]_{\sim}) = f(a)$ für alle $a \in A$ eine Abbildung $g : C \to B$ definiert.
+  %
+  %
+  Wir suchen also eine Abbildung $g: \{ [a]_{\sim} \given{a \in A} \} \to f(a) \forall A $.
+
+  Aus \url{http://www.roeglin.org/teaching/WS2012/LuDS/LuDS.pdf}{ \textbf{2.12.}}
+
+  \begin{definition}
+  Eine Relation $f \subseteq A \times B $ heißt Abbildung oder Funktion, wenn
+jedes $a \in A$ zu genau einem Element $b \in B$ in Relation steht. Um anzudeuten, dass $f$ eine Abbildung ist, schreiben wir $f: A \to B$ [...]
+  \end{definition}
+
+  Es muss also gezeigt werden, dass jedes $c \in C$ mit einem $b \in B$ in Relation steht. Wir betrachten $ g: [a] \to f(a) $ mit $f(a)$.  $f$ ist funktional fast äquivalent zu $p$, nur nicht bidirektional. Da wir uns aber nur für $g: C \to B$ interessieren ist dies keine Einschränkung. Damit gilt auch $C \subseteq B$. Weil $f$ ein eindirektionales $p$ ist auch, dass $g([a]_{\sim}) = f(a)$ für alle $a\in A$ mit $g: C \to B$.
+
+
+
+  \end{enumerate}
+
+  \subsection*{Aufgabe 2}
+
+  \begin{enumerate}[a)]
+    \item Beschreiben Sie für die Äquivalenzrelationen aus Aufgabe 2.a) und 2.c) vom Übungsblatt 3 die Äquivalenzklassen.
+      \begin{enumerate}
+        \item
+      \end{enumerate}
+  \end{enumerate}
+
+
+

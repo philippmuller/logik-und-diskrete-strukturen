@@ -1,0 +1,177 @@
+\section*{Blatt 3}
+
+	\subsection*{Aufgabe 1}
+  \begin{enumerate}[a)]
+  \item Ohne vollständige Induktion: \\
+	\begin{align*}
+    T(n) &= T(n-1) + n \\
+    T(n-1) &= T(n-2) + n -1 \\
+    T(n-2) &= T(n-3) + 2n -2 \\
+	\end{align*}
+
+  Substituiere:
+  \begin{align*}
+    T(n) &= T(n-3) + n-2 + n-1 + n \\
+    T(n) &= T(n-k) + kn - \frac{k(k-1)}{2}\\
+  \end{align*}
+  Mit $n-k=1 \implies k = n-1$ folgt:
+  \begin{align*}
+    T(n) = T(1) + n(n-1) + \frac{(n-1)(n-2)}{2} \\
+    n^2 - n - \br{ \frac{n^2  - n - 2}{2} } \iff n^2 - 3n -2 \leq n^2\\
+  \end{align*}
+
+\newpage
+
+  Mittel vollständiger Induktion: \\
+  Induktionsannahme: \\
+  \begin{align*}
+    T(1) &= 1 \implies 1 \leq 1^2 \\
+    T(2) &= 1+2 \implies 3 \leq 2^2 \\
+  \end{align*}
+
+  Induktionsschritt: \\
+
+  \begin{align*}
+    T(n+1) &= T(n) + n + 1 \\
+    T(n+1) &= T(n-1) + 2n + 1 \\
+           &\leq (n+1)^2 \\
+           &\leq n^2 + 2n +1 \\
+    T(n) &= T(n-1) + n\\
+         &\leq n^2 - n\\
+         &\leq n^2 \\
+  \end{align*}
+
+  \item Zu zeigen: \[ \br{ \sum_{i=1}^n i }^2  = \sum_{i=1}^n i^3 \; \forall n \in \N \]
+
+  Induktionsanfang mit $n=1$: $1^3 = 1^2 \; \checkmark$\\
+
+  Induktionschritt ($n \to n+1$): \\
+
+  \begin{align*}
+    \sum_{i=1}^{n+1} i^3 &= 1^3 + 2^3 + 3^3 + \cdots + (n+1)^3 \\
+        &= (1 + 2 + 3 + \cdots + n)^2 + (n+1)^3 \\
+        &= \br{\sum_{i=1}^n i}^2 + (n+1)^3 \\
+        &= \br{\frac{n(n+1)}{2}}^2 + (n+1)^3 \\
+        &= \frac{n^2(n+1)^2}{4} + (n+1)^3 \\
+        &= \frac{ n^4 + 2n^3 + n^2 }{ 4 } + \frac{ 4n^3 + 12n^2 + 12n + 4 }{ 4 } \\
+        &= \frac{(n+1)^2}{4}(n^2 + 4n + 4) \\
+        &= \frac{ (n+1)^2 (n+2)^2 }{ 4 } \\
+        &= \br{ \frac{ (n+1)(n+2) }{ 2 } }^2 \\
+        &= (1 + 2 + 3 + \cdots + (n+1))^2 \\
+        &= \br{ \sum_{i=1}^{n+1} i }^2 \hfill \blacksquare \\
+  \end{align*}
+
+  \end{enumerate}
+
+	\subsection*{Aufgabe 2}
+
+  \begin{enumerate}[a)]
+  \item $ R_1 = \{(a,b) \in \R \times \R \given{\abs{a} = \abs{b}}  \}  $
+    \begin{enumerate}
+      \item reflexiv: $\forall a \in M: aRa \implies \abs{a} = \abs{a} \checkmark$
+      \item symmetrisch: $ \forall a, b \in M: (aRb \implies bRa) \implies \abs{a} =
+       \abs{b} \iff \abs{b} = \abs{a} \checkmark  $
+
+      \item antisymmetrisch: $ \forall a,b \in M : ((aRb \land bRa) \implies a = b).  $\\
+      $ (\abs{a} = \abs{b}) \land (\abs{b} = \abs{a}) \notimplies a = b \hspace{1em} (-2 \neq 2)$
+
+      \item transitiv: $ \forall a,b,c \in M: ((aRb \land bRc) \implies aRc)  $:\\
+      $ (\abs{a}=\abs{b}) \land (\abs{b} = \abs{c}) \implies \abs{a} = \abs{c} \checkmark  $
+
+      \item Äquivalenzrelation: $R$ ist \emph{reflexiv}, \emph{symmetrisch} und \emph{transitiv} $\checkmark$
+    \end{enumerate}
+
+\newpage
+
+  \item $ R_2 = \{(a,b) \in \R \times \R \given{\abs{a-b}\leq 1} \}  $
+
+    \begin{enumerate}
+      \item reflexiv: $\forall a \in M: aRa \implies
+      \abs{a-a = 0 \le 1} \checkmark$
+      \item symmetrisch: $ \forall a, b \in M: (aRb \implies bRa):
+      (\abs{a-b} \leq 1 \notimplies \abs{b-a} \le 1)  $
+
+      \item antisymmetrisch: $ \forall a,b \in M : ((aRb \land bRa) \implies a = b). $\\
+      $ (\abs{a-b} \leq 1 \land
+      \abs{b-a} \le 1) \notimplies a=b
+      \hspace{1em} \text{i.e.}
+       \; a = 0.2,\; b = 0.1 $
+
+      \item transitiv: $ \forall a,b,c \in M: ((aRb \land bRc) \implies aRc)  $:\\
+      $ (\abs{a-b} \leq 1 \land \abs{b-c} \le 1) \notimplies \abs{a-c} \le 1 \hspace{1em}
+       \text{i.e.} \hspace{1em} a = -0.4,\; b = 0.5, \; c = 1.$
+
+      \item Äquivalenzrelation: $R$ ist \emph{reflexiv}, \emph{symmetrisch} und \emph{transitiv}: \\
+      Keine Äquivalenzrelation.
+
+    \end{enumerate}
+
+  \vspace{1em}
+
+  \item $ R_3^p = \{(a,b) \in \Z \times \Z \given{ \exists z \in \Z: a - b = z p } \} $ für ein $p \in \N$
+
+    \begin{enumerate}
+      \item reflexiv: $\forall a \in M: aRa \implies
+      a - a = 0 = z p $ falls $ 0 \in \N \; ( \text{also} \; \N_0)$
+
+      \item symmetrisch: $ \forall a, b \in M: (aRb \implies bRa):$
+      $a - b = zp \implies b-a = zp$ falls $p$ variabel sein darf. $R_3^p$ ist symmetrisch mit $a-b =  zp_0$ und $b-a = zp_1$ wobei $p_0 \neq p_1$ sein kann. Es gilt $p_0 = -p_1$. Falls $p$ fix gewählt wird, ist $R_3^p$ nicht symmetrisch.
+
+      \item antisymmetrisch: $ \forall a,b \in M : ((aRb \land bRa) \implies a = b). $\\
+      $ [(a-b) = zp_0 \land (b-a) = zp_1] \implies (a=b)$ wenn $p_0$ $p_1$ wie oben definiert sind. Für fixes $p$ ist $R_3^p$ nicht antisymmetrisch.
+
+      \item transitiv: $ \forall a,b,c \in M: ((aRb \land bRc) \implies aRc)  $:\\
+      Auch die Transitivität gilt nur, wenn variable $p$ zugelassen werden. Beispielsweise bei der Wahl von $a = -1, \; b = 2, \; c = 4$ kann die Transitivität nur gegeben sein, wenn wir für $p$ positiv und negativ zulassen. Falls $p$ fix ist, ist $R_3^p$ nicht transitiv.
+
+      \item Äquivalenzrelation: $R$ ist \emph{reflexiv}, \emph{symmetrisch} und \emph{transitiv}: \\
+      I.A. keine Äquivalenzrelation.
+
+    \end{enumerate}
+
+  \end{enumerate}
+
+
+  \subsection*{Aufgabe 3}
+
+  \begin{enumerate}
+  \item Geben Sie für die folgenden Abbildungen an, ob sie injektiv, surjektiv oder bijektiv sind.
+    \begin{enumerate}
+      \item
+      $f_{\lambda}:
+       \R \to \R$ mit
+       $f_{\lambda} (x) = \lambda x$
+       für festes
+       $\lambda \in \R$:\\
+      Bijektiv.
+
+      \item $ g: \mathcal{P}(\N) \to \N_0 \cup \{\infty\} $ mit $g(M) = \abs{M}$ für alle endlichen Mengen $M\subset \N$ und $g(M) = \infty$ für alle unendlichen Mengen $M$:\\
+      Surjektiv.
+
+      \item $ h: \R^2 \to \R $ mit $h(x,y) = xy$ für alle $(x,y) \in \R^2$: \\
+      Surjektiv.
+
+    \end{enumerate}
+    \item Geben Sie eine bijektive Abbildung zwischen $\N$ und $\Z$ an.\\
+    \[ \Z \to \N: \; z \to \begin{cases}
+      2z+1 & z \geq 0 \\
+      -2z & z < 0 \\
+    \end{cases}   \]
+  \end{enumerate}
+
+  \subsection*{Aufgabe 4}
+  \begin{enumerate}[a)]
+
+  \item Aus \url{http://www.roeglin.org/teaching/WS2012/LuDS/LuDS.pdf}{\hspace{2ex}\textbf{Definition 2.12}}: Eine Relation $f \subseteq A \times B$ heißt Abbildung oder Funktion, wenn jedes $a \in A$ zu genau einem Element $b \in B$ in Relation steht.\\
+
+  Daher sind die Bildmengen von $g$ und $f$ respektive: \\
+  \[  g(M) = \{ n \in N \given{\exists m \in M : g(m) = n} \}  \]
+  \[ f(N) = \{ p \in P \given{ \exists n \in N : f(n) = p } \} \]
+  Bei der Verknüpfung $(f \circ g) (x) = f(g(x))$ wird zuerst $M \to N$ und dann $N \to P$ abgebildet.
+
+  Da $f$ und $g$ Abbildungen sind, existieren $n \in N$ und $p \in P$ auf welche $g \circ f$ durch $f(g(x))$ und $x \in M$ abbildet. Damit ist $(f \circ g)(x)$ auch eine Abbildung.
+
+  \item Die Umkehrabbildung $f^{-1}: N \to M$ existiert, wenn $f$ bijektiv ist.
+  Dann ist $f$ nämlich injektiv und surjektiv, weswegen sowhl $y \in N$ als
+  auch $x \in M$ existieren mit $ (f^{-1} \circ f)(x) = x $ und
+  $(f \circ f^{-1})(y)$.
+  \end{enumerate}
