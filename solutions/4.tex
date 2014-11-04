@@ -77,11 +77,11 @@ jedes $a \in A$ zu genau einem Element $b \in B$ in Relation steht. Um anzudeute
 
       \begin{definition}$[a] \oplus_{n} [b] = [a + b]_n$
       \end{definition}
-      Daher suchen wir $[42 + 276]_47 = [318]_47$ Rest ist 36, daher gilt $[318]_47 = \{ x \, \text{mod} \, 47 = 36 \iff x = 47n + 36, \; n \in \Z  \} $
+      Daher suchen wir $[42 + 276]_{47} = [318]_{47}$ Rest ist 36, daher gilt $[318]_{47} = \{ x \, \text{mod} \, 47 = 36 \iff x = 47n + 36, \; n \in \Z  \} $
 
-      \item $ [7] \odot_11 [19] $. Es folgt wieder $ [7 \cdot 19]_11 = [133]_11 $, Rest ist 1, daher gilt
+      \item $ [7] \odot_{11} [19] $. Es folgt wieder $ [7 \cdot 19]_{11} = [133]_{11} $, Rest ist 1, daher gilt
 
-      $ [133]_11 = \{\ x = 11n + 1, \; n \in \Z \iff [1] \; \text{mit} \; \equiv_{3} \} $.
+      $ [133]_{11} = \{\ x = 11n + 1, \; n \in \Z \iff [1] \; \text{mit} \; \equiv_{3} \} $.
 
 
 
@@ -107,7 +107,7 @@ jedes $a \in A$ zu genau einem Element $b \in B$ in Relation steht. Um anzudeute
       \item $V = \{S \} $
       \item $P = \{ S \to \epsilon,
       S \to 01S, S \to S 01,
-      S \to 1n S,
+      S \to 1^{n} S,
       S \to S 1^{n},
       \; n \in \N_{+} \}$
     \end{enumerate}
@@ -115,6 +115,67 @@ jedes $a \in A$ zu genau einem Element $b \in B$ in Relation steht. Um anzudeute
 
   \end{enumerate}
 
+  \subsection*{Aufgabe 4}
+
+  DEA besteht aus einem Tupel $  (Q, \Sigma, \delta, q_0 \in Q, F \subseteq Q) $
+
+  \begin{enumerate}[a)]
+
+    \item 3.a)
+
+    \begin{enumerate}[i)]
+      \item $Q = \{ q_i, \; i \in \{ 0, \ldots, 4 \} \}$
+      \item $ \Sigma = \{ 0,1 \} $
+      \item $q_0 = q_0$
+      \item $F = Q$
+      \item $\delta$:
+
+      \begin{tikzpicture}[>=stealth',shorten >=1pt,auto,node distance=2cm]
+      \node[initial,state,accepting]  (q0)     {$q_0$};
+      \node[state, accepting]  (q1) [right of=q0]  {$q_1$};
+      \node[state, accepting]  (q2) [right of=q1] {$q_2$};
+      \node[state, accepting]  (q3) [right of=q2]  {$q_3$};
+      \node[state, accepting]  (q4) [right of=q3] {$q_4$};
+
+      \path[->] (q0) edge [loop above] node {0} (q0)
+                 edge              node {1} (q1)
+            (q1) edge [loop above] node {0} (q1)
+                 edge              node {1} (q2)
+            (q2) edge [loop above] node {0} (q2)
+                 edge              node {1} (q3)
+            (q3) edge [loop above] node {0} (q3)
+                 edge              node {1} (q4)
+            (q4) edge [loop above] node {0} (q4)
+            ;
+      \end{tikzpicture}
+      \end{enumerate}
+
+
+    \item 3.b) %%%%%%%%%%%%%%%
+
+    \begin{enumerate}[i)]
+      \item $Q = \{ q_0, q_1 \}$
+      \item $ \Sigma = \{ 0,1 \} $
+      \item $q_0 = q_0$
+      \item $F = Q$
+      \item $\delta$:
+
+      \begin{tikzpicture}[>=stealth',shorten >=1pt,auto,node distance=2cm]
+      \node[initial,state,accepting]  (q0)     {$q_0$};
+      \node[state, accepting]  (q1) [right of=q0]  {$q_1$};
+
+
+      \path[->] (q0) edge [loop above] node {1} (q0)
+                 edge              node {0} (q1)
+            (q1) edge [bend left]  node {1} (q0)
+
+            ;
+      \end{tikzpicture}
+      \end{enumerate}
+
+
+
+\end{enumerate}
 
 
 
