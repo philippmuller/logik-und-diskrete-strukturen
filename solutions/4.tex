@@ -88,5 +88,33 @@ jedes $a \in A$ zu genau einem Element $b \in B$ in Relation steht. Um anzudeute
     \end{enumerate}
   \end{enumerate}
 
+  \subsection*{Aufgabe 3}
+    Eine reguläre Grammatik ist ein Tupel $(\Sigma, V, S, P)$.
+
+  \begin{enumerate}[a)]
+    \item Die Sprache aller Wörter, die maximal viermal die 1 enthalten.
+
+    \begin{enumerate}[i)]
+      \item $\Sigma = \{ 0,1 \}$
+      \item $V = \{S \} $
+      \item $P = \{ S \to \epsilon, S \to 0S, S \to 1^n S, S \to S 1^n, \; n \in \N_{+}, n \leq 4 \}$
+    \end{enumerate}
+
+    \item Die Sprache aller Wörter, bei denen keine zwei 0 hintereinanderstehen.
+
+    \begin{enumerate}[i)]
+      \item $\Sigma = \{ 0,1 \}$
+      \item $V = \{S \} $
+      \item $P = \{ S \to \epsilon,
+      S \to 01S, S \to S 01,
+      S \to 1n S,
+      S \to S 1^{n},
+      \; n \in \N_{+} \}$
+    \end{enumerate}
+
+
+  \end{enumerate}
+
+
 
 
