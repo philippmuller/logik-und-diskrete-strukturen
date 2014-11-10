@@ -1,0 +1,97 @@
+\section*{Blatt 5}
+
+	\subsection*{Aufgabe 3}
+  Zeigen Sie mithilfe des Pumping-Lemmas, dass die folgenden Sprachen über dem
+Alphabet $\Sigma = \{a, b, c\}$ nicht regulär sind. \\
+
+Pumping Lemma:
+\[ \exists n \in \N_0, \forall z \in L, \abs{z} \leq n: \;
+ \exists u,v,w \; \text{mit} \; z = uvw \]
+
+Für die Zerlegung von $z$ gilt dann:
+\begin{enumerate}
+\item $\abs{uv} \leq n$
+\item $ \abs{v} > 0$
+\item $\forall \, i \in \N_0: \; uv^i w \in L$
+\end{enumerate}
+
+\vspace{1em}
+
+  \begin{enumerate}[a)]
+  \item $ L_1 = \{ a^i b^{2i} \given{i \in \N} \} $ \\
+
+    Angenommen $L_1$ sei regulär. Dann gibt es nach dem Pumping Lemma eine Zahl $n$, so dass sich alle Wörter $ z \in L_1 $ mit $ \abs{z} \geq n $ wie folgt zerlegen lässt.
+
+    Betrachte speziell das Wort $z = uvw = a^n b^{2n}$.
+
+    Gemäß Bedingung 2 ist $v$ nicht leer, gemäß Bedingung 1 besteht $uv$ und somit auch $v$ ausschließlich aus $a$s (da $\left|uv\right| \leq n$ und $\left|uvw\right| = \left|a^n b^{2n}\right| = 3n)$. Mit Bedingung 3 müsste das Wort
+    \[ uv^2w = a^{n - \left|v\right|} a^{2 \cdot \left|v\right|}b^2n = a^{n+ \left|v\right|}b^2n \]
+    in $L$ liegen. Das ist aber offensichtlich falsch, denn dieses Wort hat mehr als halb soviele $a$s als $b$s, da  ${\left|v\right|}$ größer 0 und damit $\abs{n} + \abs{v} > \abs{n}$ . Damit gilt: $L$ kann nicht regulär sein. \\
+
+  \item $ L_2 = \{  a^{i} b^{j} c^{k} \given {i,j,k \in \N \; \text{und} \; i < j < k}  \} $ \\
+
+    Wähle $z = uvw = a^{\alpha} b^{\beta} c^{\gamma}$, sodass $\alpha < \beta < \gamma$ gilt, nach Voraussetzung. Es gilt dann $\abs{uvw} = \abs{ a^{\alpha} b^{\beta} c^{\gamma} } = \alpha + \beta + \gamma $ und $\abs{uv} \leq n$, da $\alpha + \beta \leq \alpha + \beta + \gamma =: n$. Außerdem gilt $v > 0$.
+
+    Daher muss mit (3) auch das Wort $z^{\star} := uv^2 w = a^{\alpha} (b^{\beta})^2 c^{\gamma} = a^{\alpha} b^{2 \beta} c^{\gamma}$ in $L_2$ liegen. Dies ist jedoch nicht der Fall, da für $z^{\star}$ nicht mehr gilt, dass $\alpha < 2 \beta < \gamma$. Dies wird offensichtlich, wenn man bspw. $\alpha = 1, \; \beta = 2, \; \gamma = 3$ wählt. Daher gilt $z^{\star} \notin L_2$ und somit ist $L_2$ nicht regulär.\\
+
+  \item $ L_3 = \{  w \in \Sigma^{*} \given{ \abs{w} \; \text{ist eine Zweierpotenz} }  \} $ \\
+
+  Definiere $L_4 := \{  a^{2^{k}} \given{k \in \N}  \}$. Es gilt $L_4 \subset L_3$.
+
+  Wähle nun $z = a^{2^{k}}$. Es gilt offensichtlich $z \in L_4$ und daher auch $z \in L_3$ sowie $\abs{z} \geq n$.
+
+  Zerlege $z$ in $uvw$ so, dass $\abs{uv} \leq n$ und $\abs{v} > 0$ mit
+
+  \[  u = a^p, \; v = a^q, \; w = a^{2^{n} - p -q} \given{p+q \leq n, \; q > 0} . \]
+
+  Sei oBdA $i=2$, dann gilt $uv^{i}w = a^{2^{n} + q}$. Aufgrund von $2^n > n, \; \forall \, n \in \N$ folgt, dass $p+q < 2^n$ und daher $0 < q < 2^n$. Das heisst
+
+  \[  2^n < 2^n + q < 2^n + 2^n = 2 \cdot 2^n = 2^{n+1}  \]
+
+  Daher ist $2^n + q$ keine Zweierpotenz, sondern liegt zwischen $2^n$ und $2^{n+1}$. Somit folgt $z = uv^{i}w = uv^{2}w \notin L_4$ und $z \notin L_3$. Also verletzen sowohl $L_4$ als auch $L_3$ das Pumping Lemma und sind nicht regulär.
+
+
+
+
+
+
+
+  \end{enumerate}
+
+
+
+      % automata stuff
+      % \begin{tikzpicture}[>=stealth',shorten >=1pt,auto,node distance=2cm]
+      % \node[initial,state,accepting]  (q0)     {$q_0$};
+      % \node[state, accepting]  (q1) [right of=q0]  {$q_1$};
+      % \node[state, accepting]  (q2) [right of=q1] {$q_2$};
+      % \node[state, accepting]  (q3) [right of=q2]  {$q_3$};
+      % \node[state, accepting]  (q4) [right of=q3] {$q_4$};
+
+      % \path[->] (q0) edge [loop above] node {0} (q0)
+      %            edge              node {1} (q1)
+      %       (q1) edge [loop above] node {0} (q1)
+      %            edge              node {1} (q2)
+      %       (q2) edge [loop above] node {0} (q2)
+      %            edge              node {1} (q3)
+      %       (q3) edge [loop above] node {0} (q3)
+      %            edge              node {1} (q4)
+      %       (q4) edge [loop above] node {0} (q4)
+      %       ;
+      % \end{tikzpicture}
+
+
+
+
+      % more automata stuff
+      % \begin{tikzpicture}[>=stealth',shorten >=1pt,auto,node distance=2cm]
+      % \node[initial,state,accepting]  (q0)     {$q_0$};
+      % \node[state, accepting]  (q1) [right of=q0]  {$q_1$};
+
+
+      % \path[->] (q0) edge [loop above] node {1} (q0)
+      %            edge              node {0} (q1)
+      %       (q1) edge [bend left]  node {1} (q0)
+
+      %       ;
+      % \end{tikzpicture}
