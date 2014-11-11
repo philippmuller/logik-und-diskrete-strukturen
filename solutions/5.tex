@@ -66,8 +66,8 @@ Graphisch:\\
             (q1) edge [loop above] node {a,b} (q1)
                  edge              node {a} (q2)
             (q2) edge [loop below] node {a} (q2)
-                 edge              node {b} (q3)
-            (q3) edge              node {a} (q2)
+                 edge [bend left] node {b} (q3)
+            (q3) edge [bend left]  node {a} (q2)
                  edge              node {b} (q1);
             % (q3) edge [loop right] node {a} (q3);
 
@@ -109,10 +109,10 @@ Oder als Graph:\\
                  edge              node {a} (q1q2)
                  edge              node {b}  (q1)
             (q1q2) edge [loop above] node {a} (q1q2)
-                 edge              node {b} (q1q3)
+                 edge  [bend left]   node {b} (q1q3)
             (q1) edge node {}       (q1)
                  edge              node {a,b} (q1q2)
-            (q1q3) edge            node {a} (q1q2)
+            (q1q3) edge  [bend left]  node {a} (q1q2)
                  edge              node {b} (q1);
 
 \end{tikzpicture}
