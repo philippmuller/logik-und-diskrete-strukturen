@@ -111,7 +111,7 @@ $L_2 = \{1^k 0^l 1^l
 
 \item Zeigen Sie, dass man mithilfe des Pumping-Lemmas nicht zeigen kann, dass es keinen DFA gibt, der die Sprache $L$ entscheidet.\\
 
-Prüft man $L$ auf die Bedingungen des Pumping Lemmas sollte $L$ dieses nicht erfüllen, insofern $L$ nicht regulär ist. Allerdings erfüllt $L$ das Pumping Lemma, weil für jedes Wort $z \in L$ eine Zerlegung $uvw$ existiert mit $\abs{uv} \leq n, \; v>0$ und $\abs{z} geq n$ für die auch $uv^iw \in L$ für $l \geq 0$.
+Prüft man $L$ auf die Bedingungen des Pumping Lemmas sollte $L$ dieses nicht erfüllen, insofern $L$ nicht regulär ist. Allerdings erfüllt $L$ das Pumping Lemma, weil für jedes Wort $z \in L$ eine Zerlegung $uvw$ existiert mit $\abs{uv} \leq n, \; v>0$ und $\abs{z} \geq n$ für die auch $uv^iw \in L$ für $l \geq 0$.
 
 Dazu kann $v$ einfach als erster Buchstabe gewählt werden. Dieser ist entweder ein $a$, die Anzahl von führenden $a$s ist beliebig. Oder er ist ein $b$ oder $c$, ohne führende $a$s ist aber die Anzahl von führenden $b$s oder $c$s beliebig.
 
@@ -122,7 +122,7 @@ Dazu kann $v$ einfach als erster Buchstabe gewählt werden. Dieser ist entweder 
 
 Die Forderung, dass $L$ nicht von einem DFA entschieden kann ist analog zur Forderung, dass $L$ regulär ist.
 
-Betrachte erst die Sprache $L_0 = \{  0^k 1^k \given{k \geq 0} \}$. Wenn ein DFA für die Wörter $w$ und $w'$ denselben Zustand erreicht, erreicht er auch für jedes Wort $w''$ auch für die Wörter $ww''$ und $w'w''$ denselben Zustand. Das heisst er akzeptiert $ww''$ und $w'w''$ oder er akzeptiert beide nicht. Nimm an, dass der DFA $A$ die Sprache $L_0$ entscheidet.
+Betrachte erst die Sprache $L_0 = \{  0^k 1^k \given{k \geq 0} \}$. Wenn ein DFA für die Wörter $w$ und $w'$ denselben Zustand erreicht, erreicht er für jedes Wort $w''$ auch für die Wörter $ww''$ und $w'w''$ denselben Zustand. Das heisst er akzeptiert $ww''$ und $w'w''$ oder er akzeptiert beide nicht. Nimm an, dass der DFA $A$ die Sprache $L_0$ entscheidet.
 
 Betrachte nun die unendlich vielen Wörter $w_k = 0^k, \; k \geq 1$. Da ein DFA nur endlich viele Zustände haben darf, gibt es zwei Wörter $w_i$ und $w_j$ mit $i \neq j$ so, dass $A$ nach dem Lesen von $w_i$ und $w_j$ den gleichen Zustand erreicht. Für $w'' = 1^i$ ist $w_i w'' \in L_0$ und $w_j w'' \notin L_0$. $A$ trifft also für eines der Wörter $w_i w''$ oder $w_j w''$ eine falsche Entscheidung. Daher gibt es keinen DFA, der $L_0$ entscheidet.
 
