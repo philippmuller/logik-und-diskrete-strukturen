@@ -1,6 +1,45 @@
 \section*{Blatt 5}
 
-	\subsection*{Aufgabe 3}
+\subsection*{Aufgabe 1}
+
+\begin{enumerate}[a)]
+
+\item Für $n\geq 2$ gilt $\prod_{k=2}^n (1 - \frac{1}{k}) = \frac{1}{n}$ \\
+
+I.A.: $n=2$. $1 - \frac{1}{2} = 1 - \frac{1}{2} \; \checkmark$
+
+Induktionsschritt $n \to n+1$:
+
+\begin{align*}
+\prod_{k=2}^{n+1} (1 - \frac{1}{k}) &= \frac{1}{n+1} \\
+(1 - \frac{1}{n+1}) \prod_{k=2}^{n} (1 - \frac{1}{k}) &= \frac{1}{n+1} \\
+\text{IV anwenden:} \; (1- \frac{1}{n+1})\frac{1}{n} &= \frac{1}{n+1} \\
+\frac{(n+1)-1}{n+1} \frac{1}{n} &= \frac{1}{n+1}\\
+\frac{n}{n+1} \frac{1}{n} &= \frac{1}{n+1}\\
+\frac{n}{(n+1)n} &= \frac{1}{n+1}\\
+\frac{1}{n+1} &= \frac{1}{n+1} \hspace{2em} \blacksquare
+\end{align*}
+
+\item Für $n\in\N$ gilt $\prod_{k=1}^{n} (1 + \frac{2}{k}) = \sum_{i=1}^{n+1} i$\\
+
+I.A.: $n=1$, $ 1 + \frac{2}{1} = 1+2 \; \checkmark$ \\
+
+Induktionsschritt $n \to n+1$:
+
+\begin{align*}
+\prod_{k=1}^{n+1} \bp{1 + \frac{2}{k}} &= \bp{\sum_{i=1}^{n+1} i} + (n+2) \\
+1 + \frac{2}{n+1} \prod_{k=1}^{n} \bp{1 + \frac{2}{k}} &= \bp{\sum_{i=1}^{n+1} i} + n + 2 \\
+\text{I.V.:} \; \bp{ 1 + \frac{2}{n+1} } \bp{ \sum_{i=1}^{n+1} i } &= \sum_{i=1}^{n+1} + n + 2\\
+1 + \frac{2}{n+1} &= \frac{n+2}{ \sum_{i=1}^{n+1} +1}\\
+\text{Gauss:} \; \frac{2}{n+1} + 1 &= \frac{2(n+2)}{(n+1)(n+2)}+1\\
+\frac{2}{n+1} &= \frac{2}{n+1} \hspace{2em} \blacksquare
+\end{align*}
+
+
+
+\end{enumerate}
+
+\subsection*{Aufgabe 3}
   Zeigen Sie mithilfe des Pumping-Lemmas, dass die folgenden Sprachen über dem
 Alphabet $\Sigma = \{a, b, c\}$ nicht regulär sind. \\
 
@@ -44,19 +83,76 @@ Für die Zerlegung von $z$ gilt dann:
 
   \[  u = a^p, \; v = a^q, \; w = a^{2^{n} - p -q} \given{p+q \leq n, \; q > 0} . \]
 
-  Sei oBdA $i=2$, dann gilt $uv^{i}w = a^{2^{n} + q}$. Aufgrund von $2^n > n, \; \forall \, n \in \N$ folgt, dass $p+q < 2^n$ und daher $0 < q < 2^n$. Das heisst
+  Sei oBdA $i=2$, dann gilt $uv^{i}w = a^{2^{n} + q}$. Aufgrund von $2^n \geq n, \; \forall \, n \in \N$ folgt, dass $p+q < 2^n$ und daher $0 < q < 2^n$. Das heisst
 
   \[  2^n < 2^n + q < 2^n + 2^n = 2 \cdot 2^n = 2^{n+1}  \]
 
   Daher ist $2^n + q$ keine Zweierpotenz, sondern liegt zwischen $2^n$ und $2^{n+1}$. Somit folgt $z = uv^{i}w = uv^{2}w \notin L_4$ und $z \notin L_3$. Also verletzen sowohl $L_4$ als auch $L_3$ das Pumping Lemma und sind nicht regulär.
-
-
-
-
-
-
-
   \end{enumerate}
+
+
+\subsection*{Aufgabe 4}
+
+Gegeben seien zwei Sprachen $L_1 = \{
+0^{k}
+ 1^{l}
+\given{k,l
+\geq 0}\}$
+und
+$L_2 = \{1^k 0^l 1^l
+\given{k,l \geq 1} \}$ über dem
+ Alphabet $\{0, 1\}$
+  sowie deren Vereinigung
+  $L =
+  L_1
+  \cup
+  L_2$.
+\begin{enumerate}[a)]
+
+\item Zeigen Sie, dass man mithilfe des Pumping-Lemmas nicht zeigen kann, dass es keinen DFA gibt, der die Sprache $L$ entscheidet.\\
+
+Prüft man $L$ auf die Bedingungen des Pumping Lemmas sollte $L$ dieses nicht erfüllen, insofern $L$ nicht regulär ist. Allerdings erfüllt $L$ das Pumping Lemma, weil für jedes Wort $z \in L$ eine Zerlegung $uvw$ existiert mit $\abs{uv} \leq n, \; v>0$ und $\abs{z} geq n$ für die auch $uv^iw \in L$ für $l \geq 0$.
+
+Dazu kann $v$ einfach als erster Buchstabe gewählt werden. Dieser ist entweder ein $a$, die Anzahl von führenden $a$s ist beliebig. Oder er ist ein $b$ oder $c$, ohne führende $a$s ist aber die Anzahl von führenden $b$s oder $c$s beliebig.
+
+
+
+
+\item Zeigen Sie, dass die Sprache L nicht von einem DFA entschieden werden kann.\\
+
+Die Forderung, dass $L$ nicht von einem DFA entschieden kann ist analog zur Forderung, dass $L$ regulär ist.
+
+Betrachte erst die Sprache $L_0 = \{  0^k 1^k \given{k \geq 0} \}$. Wenn ein DFA für die Wörter $w$ und $w'$ denselben Zustand erreicht, erreicht er auch für jedes Wort $w''$ auch für die Wörter $ww''$ und $w'w''$ denselben Zustand. Das heisst er akzeptiert $ww''$ und $w'w''$ oder er akzeptiert beide nicht. Nimm an, dass der DFA $A$ die Sprache $L_0$ entscheidet.
+
+Betrachte nun die unendlich vielen Wörter $w_k = 0^k, \; k \geq 1$. Da ein DFA nur endlich viele Zustände haben darf, gibt es zwei Wörter $w_i$ und $w_j$ mit $i \neq j$ so, dass $A$ nach dem Lesen von $w_i$ und $w_j$ den gleichen Zustand erreicht. Für $w'' = 1^i$ ist $w_i w'' \in L_0$ und $w_j w'' \notin L_0$. $A$ trifft also für eines der Wörter $w_i w''$ oder $w_j w''$ eine falsche Entscheidung. Daher gibt es keinen DFA, der $L_0$ entscheidet.
+
+Betrachten wir nun $L = L_1 \cup L_2$ für verschiedene $k, l$:
+
+\[ L=
+\begin{cases}
+(0^k 1^l) & l,k = 0 \\
+            0 & l = 0, k=1 \\
+            1 & l = 1, k=0 \\
+(1^l 0^l 0^l) & l \geq 1, k=0 \\
+    \underbrace{(0^k 1^k)}_{\equiv L_0} & l=0, k \geq 1 \\
+(0^k 1^l 1^k 0^l 1^l) \iff (\underbrace{0^k 1^k}_{\equiv L_0} \underbrace{1^l 0^l}_{\equiv L_0} 1^l) & l,k \geq 1 \\
+\end{cases}
+\]
+
+Wir sehen also, dass $L$ unter nicht trivialen Variablenbelegungen äquivalent zu solchen Sprachen ist, die nicht durch DFAs darstellbar sind. Daher ist $L$ selbst nicht regulär.
+
+
+\end{enumerate}
+
+
+
+
+
+
+
+
+
+
 
 
 
