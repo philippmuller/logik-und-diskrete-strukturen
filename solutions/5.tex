@@ -23,7 +23,6 @@ Induktionsschritt $n \to n+1$:
 \item Für $n\in\N$ gilt $\prod_{k=1}^{n} (1 + \frac{2}{k}) = \sum_{i=1}^{n+1} i$\\
 
 I.A.: $n=1$, $ 1 + \frac{2}{1} = 1+2 \; \checkmark$ \\
-
 Induktionsschritt $n \to n+1$:
 
 \begin{align*}
@@ -34,9 +33,98 @@ Induktionsschritt $n \to n+1$:
 \text{Gauss:} \; \frac{2}{n+1} + 1 &= \frac{2(n+2)}{(n+1)(n+2)}+1\\
 \frac{2}{n+1} &= \frac{2}{n+1} \hspace{2em} \blacksquare
 \end{align*}
+\end{enumerate}
 
+\newpage
 
+\subsection*{Aufgabe 2}
 
+\begin{enumerate}[a)]
+
+\item Konstruieren Sie aus dem NFA $M$ mithilfe der Potenzmengenkonstruktion einen äquivalenten DFA $M'$.\\
+%
+
+Der \textbf{NFA $M$} ist definiert als:
+\begin{align*}
+Q &= \{  q_0, q_1, q_2, q_3  \} \\
+F &= \{ q_0, q_3  \} \\
+q_0 &= \{ q_0  \} \\
+\delta &\subseteq (Q \times \Sigma) \times Q \\
+\delta &: Q \times \Sigma \to P(Q) \\
+\end{align*}
+%
+Graphisch:\\
+ \begin{tikzpicture}[>=stealth',shorten >=1pt,auto,node distance=3cm]
+      \node[initial,state,accepting]  (q0)     {$q_0$};
+      \node[state]  (q1) [above right of=q0]  {$q_1$};
+      \node[state]  (q2) [below right of=q0] {$q_2$};
+      \node[state, accepting]  (q3) [above right of=q2]  {$q_3$};
+
+      \path[->] (q0) node {} (q0)
+                 edge              node {a,b} (q1)
+                 edge              node {a}   (q2)
+            (q1) edge [loop above] node {a,b} (q1)
+                 edge              node {a} (q2)
+            (q2) edge [loop below] node {a} (q2)
+                 edge              node {b} (q3)
+            (q3) edge              node {a} (q2)
+                 edge              node {b} (q1);
+            % (q3) edge [loop right] node {a} (q3);
+
+\end{tikzpicture}
+%
+%
+\newpage
+%
+Der zugehörige \textbf{DFA} $M'$ charaktierisiert sich wie folgt.\\
+\begin{align*}
+q'_{0} &= \{  q_0 \} \\
+Q' = P(Q) &= \{ \emptyset, \{q_0\}, \{q_1\}, \{q_2\}, \{q_3\}, \{q_0, q_1\}, \{q_0, q_2\},\\
+                         &\ldots  \{q_0, q_3\}, \{q_1, q_2\}, \{q_1, q_3\}, \{q_2, q_3\},\\
+                         &\ldots  \{q_0, q_1, q_2\}, \{q_0, q_1, q_3\}, \{q_0, q_2, q_3\},\\
+                         &\ldots  \{q_1, q_2, q_3\}, \{q_0, q_1, q_2, q_3\}   \} \\
+F' &=  (q \in Q' \given{q \cap F \neq \emptyset} ) \\
+       &=  \{  Q' \setminus \{\emptyset, \{q_1\}, \{q_2\}, \{q_1, q_2\}    \} \\
+\delta' &= Q \times \Sigma \to Q \\
+\end{align*}
+
+Die Zustandsüberführungsrelation $\delta$ für $M'$ können wir auch durch folgende Tabelle angeben:\\
+
+    \begin{tabular}{c | c c c c}
+
+            $\delta$ & $q_0$ & $q_1 q_2$ & $q_1$ & $q_1 q_3$ \\
+            \hline
+            $a$ &  $\{ q_1 q_2 \}$ & $ \{ q_1 q_2 \} $ & $ \{ q_1 q_2 \} $ & $ \{q_1 q_2\} $  \\
+            $b$ &  $ \{ q_1 \} $  &  $ \{q_1 q_3\} $ &  $ \{ q_1 q_2 \} $ & $ \{q_1\} $    \\
+    \end{tabular}\\
+
+Oder als Graph:\\
+\begin{tikzpicture}[>=stealth',shorten >=1pt,auto,node distance=3cm]
+      \node[initial,state,accepting]  (q0)     {$q_0$};
+      \node[state]  (q1q2) [above right of=q0]  {$q_1 q_2$};
+      \node[state]  (q1) [below right of=q0] {$q_1$};
+      \node[state, accepting]  (q1q3) [above right of=q2]  {$q_1 q_3$};
+
+      \path[->] (q0) node {} (q0)
+                 edge              node {a} (q1q2)
+                 edge              node {b}  (q1)
+            (q1q2) edge [loop above] node {a} (q1q2)
+                 edge              node {b} (q1q3)
+            (q1) edge node {}       (q1)
+                 edge              node {a,b} (q1q2)
+            (q1q3) edge            node {a} (q1q2)
+                 edge              node {b} (q1);
+
+\end{tikzpicture}
+%
+%
+%
+\item Geben Sie die Sprache an, die der NFA $M$ entscheidet.
+%
+\begin{align*}
+ L(M) &= L(M') = \{ \epsilon, ab, aab, babab, abbaaab, \ldots, \; \text{Wörter müssen auf $ab$ enden}\} \\
+  &= \{  \epsilon, P(a^i, b^j)ab \given{i,j \geq 0, \; i,j \in \N}  \}
+\end{align*}
 \end{enumerate}
 
 \subsection*{Aufgabe 3}
@@ -54,12 +142,11 @@ Für die Zerlegung von $z$ gilt dann:
 \item $\forall \, i \in \N_0: \; uv^i w \in L$
 \end{enumerate}
 
-\vspace{1em}
-
+\vspace{2em}
   \begin{enumerate}[a)]
   \item $ L_1 = \{ a^i b^{2i} \given{i \in \N} \} $ \\
 
-    Angenommen $L_1$ sei regulär. Dann gibt es nach dem Pumping Lemma eine Zahl $n$, so dass sich alle Wörter $ z \in L_1 $ mit $ \abs{z} \geq n $ wie folgt zerlegen lässt.
+    Angenommen $L_1$ sei regulär. Dann gibt es nach dem Pumping Lemma eine Zahl $n$, so dass sich alle Wörter $ z \in L_1 $ mit $ \abs{z} \geq n $ wie folgt zerlegen lassen.
 
     Betrachte speziell das Wort $z = uvw = a^n b^{2n}$.
 
@@ -130,16 +217,16 @@ Betrachten wir nun $L = L_1 \cup L_2$ für verschiedene $k, l$:
 
 \[ L=
 \begin{cases}
-(0^k 1^l) & l,k = 0 \\
+     \epsilon & l,k = 0 \\
             0 & l = 0, k=1 \\
             1 & l = 1, k=0 \\
 (1^l 0^l 0^l) & l \geq 1, k=0 \\
     \underbrace{(0^k 1^k)}_{\equiv L_0} & l=0, k \geq 1 \\
-(0^k 1^l 1^k 0^l 1^l) \iff (\underbrace{0^k 1^k}_{\equiv L_0} \underbrace{1^l 0^l}_{\equiv L_0} 1^l) & l,k \geq 1 \\
+(0^k 1^l 1^k \underbrace{0^l 1^l}_{\equiv L_0})  & l,k \geq 1 \\
 \end{cases}
 \]
 
-Wir sehen also, dass $L$ unter nicht trivialen Variablenbelegungen (insbesondere $k \geq 1$) äquivalent zu solchen Sprachen ist, die nicht durch DFAs darstellbar sind. Daher ist $L$ selbst nicht regulär.
+Wir sehen also, dass $L$ unter nicht-trivialen Variablenbelegungen (insbesondere $k \geq 1$) äquivalent zu solchen Sprachen (z.B. $L_0$) ist, die nicht durch DFAs darstellbar sind. Daher ist $L$ selbst nicht regulär.
 
 
 \end{enumerate}
