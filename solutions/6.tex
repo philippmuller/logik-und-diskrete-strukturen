@@ -1,0 +1,109 @@
+\section*{Blatt 6}
+%
+
+\subsection*{Aufgabe 1}
+
+\begin{enumerate}[a)]
+  \item Da $L$ eine reguläre Sprache ist, gibt es einen DEA $A = (Q, \Sigma, \delta, q_0, F)$, der $L$ akzeptiert. $A$ würde daher jeden Zustand $\bar{l} \in \bar{L}$ ablehnen. Daher können wir einen Automaten $\bar{A} = (Q', \Sigma', \delta', q'_0, Q-F)$ konstruieren, der genau die Zustände akzeptiert, die $A$ ablehnt. $\bar{A}$ akzeptiert also genau dann ein Wort $w$, wenn es $\bar{\delta}(q_0, w) \in Q-F$ gibt.
+
+  \item Mit \url{http://www.roeglin.org/teaching/WS2012/LuDS/LuDS.pdf}, \textbf{Theorem 3.11.} Zu jedem NFA mit $n$ Zuständen gibt es einen DFA mit $2^n$ Zuständen, der dieselbe Sprache entscheidet.
+\end{enumerate}
+
+
+
+
+\subsection*{Aufgabe 4}
+%
+Gegeben $f: \N \times \N \to \N$ mit $f(x,y) = \dfrac{ (x+y) (x+y+1) }{ 2 } + y$. Wir wollen zeigen, dass $f$ bijektiv ist. Dazu zeigen wir, dass $f$ injektiv und surjektiv ist. \\
+%
+\begin{enumerate}[i)]
+%
+\item $f$ ist injektiv.\\
+%
+Dann muss für $ x_1, x_2, y_1, y_2 \in \N $ gelten, dass $f(x_1, y_1) = f(x_2, y_2)$ nur für $(x_1, y_1) = (x_2, y_2)$.
+%
+Sei $x_1 + y_1 > x_2 + y_2$, dann haben wir
+%
+\begin{align*}
+f(x,y) &= \dfrac{(x_1 + y_1) (x_1 + y_1 +1)}{2} + y_1 \\
+       &\geq \dfrac{(x_2 + y_2 + 1) (x_2 + y_2 + 2)}{2} \\
+       &= \dfrac{(x_2 + y_2 + 1)(x_2 y_2)}{2} + x_2 + y_2 + 2 \\
+       &> \dfrac{(x_2 + y_2 + 1)(x_2 y_2)}{2} + y_2 \\
+       &= \dfrac{(x_2 + y_2)(x_2 + y_2 + 1)}{2} + y_2 = f(x_2, y_2) \\
+\end{align*}
+%
+Da aus $(x_1, y_1) > (x_2, y_2)$ folgt, dass $f(x_1, y_1) > f(x_2, y_2)$ muss auch gelten, dass $f(x_2, y_2) > f(x_1, y_1) \iff (x_2, y_2) > (x_1, y_1)$.
+%
+Es kann daher nur $f(x_1, y_1) = f(x_2, y_2)$ gelten, wenn $(x_1, y_1) = (x_2, y_2)$. Für $(x_1, y_1) = (x_2, y_2)$ gilt.
+%
+\begin{align*}
+  0 &= f(x_1, y_1) - f(x_2, y_2) \\
+  &= \dfrac{(x_1 + y_1)(x_1 + y_1 + 1)}{2} + y_1 - \br{\dfrac{(x_1 + y_1)(x_1 + y_1 + 1)}{2} + y_1}\\
+  &= y_1 - y_2
+\end{align*}
+
+%
+für $y_1 = y_2$ und $x_1 = x_2$.
+%
+\item $f$ ist surjektiv. \\
+%
+Es muss also gelten, dass $\forall n \in \N, \exists x,y \in \N \times \N: \; n = f(x,y)$. \\
+%
+Induktionsanfang $n=0$: Für $x=y=0$ ist \[f(0,0) = \dfrac{(0+0)(0+0+1)}{2} + 0 = 0\] \\
+%
+Induktionsschluss $n \to n+1$: \\
+%
+Gilt $n = f(x,y)$, dann ist
+%
+%
+\begin{align*}
+n+1 &= f(x,y) + 1\\
+    &= \dfrac{(x+y)(x+y+1)}{2} + y + 1\\
+    &=
+    \begin{dcases}
+        \dfrac{(x-1+y+1)(x-1+y+1+1)}{2}+y+1 \\
+        = f(-x, y+1) & x \in \N_{>0}\\[2em]
+        \dfrac{y(y+1)}{2}+y+1 = \dfrac{(y+2)(y+1)}{2} \\
+        = \dfrac{(y+1)(y+2)}{2} \\
+        = f(y+1, 0) = f(y+1,x) & x=0 \\
+    \end{dcases}
+\end{align*}
+\end{enumerate}
+
+$f$ ist also injektiv und surjektiv und damit bijektiv.
+
+
+      % automata stuff
+      % \begin{tikzpicture}[>=stealth',shorten >=1pt,auto,node distance=2cm]
+      % \node[initial,state,accepting]  (q0)     {$q_0$};
+      % \node[state, accepting]  (q1) [right of=q0]  {$q_1$};
+      % \node[state, accepting]  (q2) [right of=q1] {$q_2$};
+      % \node[state, accepting]  (q3) [right of=q2]  {$q_3$};
+      % \node[state, accepting]  (q4) [right of=q3] {$q_4$};
+
+      % \path[->] (q0) edge [loop above] node {0} (q0)
+      %            edge              node {1} (q1)
+      %       (q1) edge [loop above] node {0} (q1)
+      %            edge              node {1} (q2)
+      %       (q2) edge [loop above] node {0} (q2)
+      %            edge              node {1} (q3)
+      %       (q3) edge [loop above] node {0} (q3)
+      %            edge              node {1} (q4)
+      %       (q4) edge [loop above] node {0} (q4)
+      %       ;
+      % \end{tikzpicture}
+
+
+
+      % more automata stuff
+      % \begin{tikzpicture}[>=stealth',shorten >=1pt,auto,node distance=2cm]
+      % \node[initial,state,accepting]  (q0)     {$q_0$};
+      % \node[state, accepting]  (q1) [right of=q0]  {$q_1$};
+
+
+      % \path[->] (q0) edge [loop above] node {1} (q0)
+      %            edge              node {0} (q1)
+      %       (q1) edge [bend left]  node {1} (q0)
+
+      %       ;
+      % \end{tikzpicture}
