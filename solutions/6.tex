@@ -6,7 +6,49 @@
 \begin{enumerate}[a)]
   \item Da $L$ eine reguläre Sprache ist, gibt es einen DEA $A = (Q, \Sigma, \delta, q_0, F)$, der $L$ akzeptiert. $A$ würde daher jeden Zustand $\bar{l} \in \bar{L}$ ablehnen. Daher können wir einen Automaten $\bar{A} = (Q', \Sigma', \delta', q'_0, Q-F)$ konstruieren, der genau die Zustände akzeptiert, die $A$ ablehnt. $\bar{A}$ akzeptiert also genau dann ein Wort $w$, wenn es $\bar{\delta}(q_0, w) \in Q-F$ gibt.
 
-  \item Mit \url{http://www.roeglin.org/teaching/WS2012/LuDS/LuDS.pdf}, \textbf{Theorem 3.11.} Zu jedem NFA mit $n$ Zuständen gibt es einen DFA mit $2^n$ Zuständen, der dieselbe Sprache entscheidet.
+  \item Mit $L^2$ bezeichnen wir die Konkatenation von
+   $L = L_1$ mit sich selbst und mit $L_i$ die Konkatenation
+   von $L_i-1$ und $L$. Damit enthält $L_i$ genau die Wörter,
+    die sich so in $i$ Teile zerlegen lassen, daß alle Teile
+    zu $L$ gehören. Der positive Kleenesche Abschluß $L^{+}$
+    besteht aus der Vereinigung aller $L_i$, $i \geq 1$. Wenn
+     wir testen wollen, ob ein Wort zu $L^{+}$ gehört, müssen
+     wir ein passendes $i$ und eine passende Zerlegung des Wortes
+      ``raten''. Eine effiziente Konstruktion deterministischer
+      Automaten scheint also ausgeschlossen zu sein, und wir gehen
+       den Umweg über nichtdeterministische Automaten. Es genügt
+       eine Kopie eines Automaten für $L$, in der wir in allen
+       akzeptierenden Zuständen eine $\epsilon$-Bewegung zum Anfangszustand
+        erlauben. Immer wenn eine derartige $\epsilon$-Bewegung
+        ausgeführt wird, ist ein Teilwort aus $L$ gelesen. Es werden
+        also genau die Wörter aus $L^{+}$ akzeptiert. Der eigentliche
+         Kleenesche Abschluß $L^{*}$ von $L$ besteht aus der Vereinigung
+         aller $L^{i}, i \geq 1$, wobei $L^{0}$ nur das leere Wort enthält.
+         Da $L^{*}$ die Vereinigung von $L^{+}$
+ und $\{\epsilon\}$ ist, erhalten wir auch leicht einen nichtdeterministischen
+ Automaten für $L^{*}$.
+\end{enumerate}
+
+\subsection*{Aufgabe 2}
+
+\begin{enumerate}[a)]
+\item $L_1 = \{ w_1 \ldots w_n \in \Sigma^{*} \given{n\geq 1 \land (w_1 = 0 \lor w_n = 1)} \} $
+
+Es gilt also entweder, dass 1 am Anfang oder 0 am Ende des Wortes steht. Wir können also schreiben
+\[  a^n b^m , \; n\geq m \iff (n+m > 1) \; \text{und} \; a,b \in \Sigma^{*}  \]
+
+\item $L_2 = \{w_1, \ldots w_n \in \Sigma^{*} \given{n\geq 3 \; \text{und} \; \exists i \in \{ 1, \ldots, n-2 \} : w_i = w_{i+1} = w_{i+2} = 0 } \}$
+
+Das heißt in jedem Wort ist 000 enthalten, wobei es auch hierauf enden darf. Wir können also schreiben:
+
+\[ \beta 000 \gamma \given{\beta, \gamma \in \Sigma^{*} } \]
+
+\item $ L_3 = \{ w_1, \ldots w_n \given{ \forall i \in \{1, \ldots, n\}: \; w_i = 1 \implies (i<n \land w_{i+1} = 0) } \} $
+
+Jedes Wort ist also entweder leer, 0 oder enthält 10, wobei 1 nicht das Ende des Wortes bilden kann. Daher:
+
+\[  \text{insert correct regular expression here}  \]
+
 \end{enumerate}
 
 
