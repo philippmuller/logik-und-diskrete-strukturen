@@ -46,7 +46,37 @@ Alle anderen möglichen Lösungen sind wegen Vorraussetzung $n\geq 2$ ungültig.
 
 \end{enumerate}
 
+\subsection*{Aufgabe 3}
+\begin{enumerate}[a)]
+\item Angenommen, dass man nicht in die falsche Richtung läuft muss jeder Weg mindestens (lt. Aufgabenstellung) 20 Bewegungen nach rechts und 20 Bewegungen nach unten enthalten. Von einem kleinen Gitter ausgehend finden wir die Anzahl der möglichen Permutationen beschrieben durch
 
+\[  N = \binom{w}{r}  \]
+
+wobei $w$ die Anzahl der Wegstücke und $r$ die Anzahl der Wege nach rechts ist. Wenn wir alle einbeziehen und beachten, dass die nötigen Wegstücke genau das doppelte der Kantenlänge $k$ sind, erhalten wir als Länge \[ \binom{2k}{k} = \frac{(2k)!}{(k!)^2} \]
+
+\item Wenn wir $(10,10)$ nicht benutzen dürfen sinkt die Anzahl der Punkte, über die wir laufen dürfen um 1. Daher erhalten wir \[ \binom{2k-1}{k}. \]
+
+
+\item dunno
+\end{enumerate}
+
+
+
+\subsection*{Aufgabe 4}
+\begin{enumerate}[a)]
+  \item Wir bekommen die Wahrscheinlichkeit, indem wir die Häufigkeit mit der gesamte Anzahl an Möglichkeiten vergleichen. Für einen Vierling haben wir 13 mögliche Hände und 48 Möglichkeiten für die fünfte Karte. Somit gibt es $13 \cdot 48$ Möglichkeiten hierfür.
+
+  Für alle möglichen Hände in five-card-draw haben wir $\frac{52!}{47!}$. Weil wir auf Reihenfolge achten müssen, müssen wir noch durch $5!$ teilen und es ergibt sich $52! / 47! / 5! = 2 598 960$, da $5!$ die tatsächlich möglichen Zusammensetzungen jener 5 Karten angibt.
+
+  Daher haben wir für die Wahrscheinlichkeit $\frac{624}{2 598 960} = 0.0002400960384 = 0.0024 \%$.
+
+  \item Es gibt 4 Farben und 13 Karten innerhalb jener. Daher haben wir \[ \binom{4}{1} \binom{13}{5} = 5148 \]
+
+  Vergleichen wir dies mit allen Möglichkeiten ergibt sich als Wahrscheinlichkeit $5 148 / 2598960=0.001980792317$.
+
+  \item dunno yet
+
+\end{enumerate}
 
       % automata stuff
       % \begin{tikzpicture}[>=stealth',shorten >=1pt,auto,node distance=2cm]
