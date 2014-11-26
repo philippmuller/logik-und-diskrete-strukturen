@@ -98,7 +98,9 @@ Wege.
 Die Anzahl der Wege, die in einem Punkt $(x,y)$ mit $y = n$ enden
 und die keinen weiteren Punkt $(x', y')$ mit $y' = n$ enthalten, ist gleich der Anzahl der Wege die zu $(x, y)$ mit $y = n -1$ führen, da von dort aus ein Schritt nach rechts den Weg beendet. Somit ist die Anzahl gegeben durch
 
-\[  N_3 = \sum_{k=1}^{n-1}\binom{n+k-2}{n-1} \].
+\[  N_3 = \sum_{k=1}^{n}\binom{n+k-3}{k-1} \].
+
+Statt bis $n$ gehen wir nur noch bis $n-1$, daher haben wir oben $n+k-3$ anstatt $n+k-2$.
 
 
 \end{enumerate}
