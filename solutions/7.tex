@@ -78,27 +78,33 @@ Forme nun LHS zu RHS um:
 \end{align*}
 
 
-
-
-
-
-
+% ----------------------------
 
 \subsection*{Aufgabe 3}
 \begin{enumerate}[a)]
-\item Angenommen, dass man nicht in die falsche Richtung läuft muss jeder Weg mindestens (lt. Aufgabenstellung) 20 Bewegungen nach rechts und 20 Bewegungen nach unten enthalten. Von einem kleinen Gitter ausgehend finden wir die Anzahl der möglichen Permutationen beschrieben durch
+\item
+Jeder Weg vom Start zum Ziel besteht aus genau $n+k-2$ Schritten, $k-1$ Schritte nach oben und $n-1$ Schritte nach rechts, und die Reihenfolge beliebig ist. Man also in jedem Schritt entscheiden, nach oben zu gehen, solange deren Summe $k-1$ ist. Die Anzahl an Wegen ist somit gegeben durch
 
-\[  N = \binom{w}{r}  \]
+\[  N_1 = \binom{n+k-2}{k-1} \].
 
-wobei $w$ die Anzahl der Wegstücke und $r$ die Anzahl der Wege nach rechts ist. Wenn wir alle einbeziehen und beachten, dass die nötigen Wegstücke genau das doppelte der Kantenlänge $k$ sind, erhalten wir als Länge \[ \binom{2k}{k} = \frac{(2k)!}{(k!)^2} \]
+Aufgrund der Symmetrie des Binomialkoeffizienten könnte man $k-1$ auch durch $n-1$ ersetzen.
 
-\item Wenn wir $(10,10)$ nicht benutzen dürfen sinkt die Anzahl der Punkte, über die wir laufen dürfen um 1. Daher erhalten wir \[ \binom{2k-1}{k}. \]
+\item
+Es führen $\binom{10+10-2}{5-1} = \binom{18}{4}$ Wege zu (10, 10). Jeder dieser Wege könnte auf $\binom{n+k-18}{k-4}$ Wege forgeführt werden. Damit gibt noch es
+\[  N_2 = \binom{n+k-2}{k-1} -  \binom{n+k-18}{k-4}\binom{18}{4} \]
+Wege.
+
+\item
+Die Anzahl der Wege, die in einem Punkt $(x,y)$ mit $y = n$ enden
+und die keinen weiteren Punkt $(x', y')$ mit $y' = n$ enthalten, ist gleich der Anzahl der Wege die zu $(x, y)$ mit $y = n -1$ führen, da von dort aus ein Schritt nach rechts den Weg beendet. Somit ist die Anzahl gegeben durch
+
+\[  N_3 = \sum_{k=1}^{n-1}\binom{n+k-2}{n-1} \].
 
 
-\item dunno
 \end{enumerate}
 
 
+% ----------------------------
 
 \subsection*{Aufgabe 4}
 \begin{enumerate}[a)]
