@@ -65,16 +65,16 @@ n = n + 1:
 Forme nun LHS zu RHS um:
 
 \begin{align*}
-& (n+1)\binom{n+1}{n+1} + \sum_{k=1}^{n}k\binom{n+1}{k} \\
-& (n+1) + \sum_{k=1}^{n}k\binom{n}{k} + \sum_{k=1}^{n}k\binom{n}{k-1} \\
-& (n+1) + \sum_{k=1}^{n}k\binom{n}{k} + \sum_{k=1}^{n}(k-1)\binom{n}{k-1} + \sum_{k=1}^{n}\binom{n}{k-1} \\
-& (n+1) + \sum_{k=1}^{n}k\binom{n}{k} + \sum_{k=0}^{n-1}k\binom{n}{k} + n^{2} - 1 \\
-& (n+1) + \sum_{k=1}^{n}k\binom{n}{k} + \sum_{k=1}^{n}k\binom{n}{k} - n\binom{n}{n} + n^{2} - 1 \\
-& (n+1) + 2(\sum_{k=1}^{n}k\binom{n}{k}) - n + n^{2} - 1 \\
-& 2(\sum_{k=1}^{n}k\binom{n}{k}) + n^{2} \\
-& 2n2^{n-1} + n^{2} \\
-& n2^{n} + n^{2} \\
-& (n+1)2^{n} \\
+& \iff (n+1)\binom{n+1}{n+1} + \sum_{k=1}^{n}k\binom{n+1}{k} \\
+& \iff (n+1) + \sum_{k=1}^{n}k\binom{n}{k} + \sum_{k=1}^{n}k\binom{n}{k-1} \\
+& \iff (n+1) + \sum_{k=1}^{n}k\binom{n}{k} + \sum_{k=1}^{n}(k-1)\binom{n}{k-1} + \sum_{k=1}^{n}\binom{n}{k-1} \\
+& \iff (n+1) + \sum_{k=1}^{n}k\binom{n}{k} + \sum_{k=0}^{n-1}k\binom{n}{k} + n^{2} - 1 \\
+& \iff (n+1) + \sum_{k=1}^{n}k\binom{n}{k} + \sum_{k=1}^{n}k\binom{n}{k} - n\binom{n}{n} + n^{2} - 1 \\
+& \iff (n+1) + 2\bp{\sum_{k=1}^{n}k\binom{n}{k}} - n + n^{2} - 1 \\
+& \iff 2\bp{\sum_{k=1}^{n}k\binom{n}{k}} + n^{2} \\
+& \iff 2(n2^{n-1}) + n^{2} \\
+& \iff n2^{n} + n^{2} \\
+& \iff (n+1)2^{n} \\
 \end{align*}
 
 
