@@ -26,7 +26,7 @@ Dies sind die letzten 5 Stellen der Dezimaldarstellung.
 
 \item
 
-Aufgrund von \[ (1+x)^n = 1 + \binom{n}{1}x + \binom{n}{2}x^2 + \cdot + \binom{n}{n} x^n  \]
+Aufgrund von \[ (1+x)^n = 1 + \binom{n}{1}x + \binom{n}{2}x^2 + \cdots + \binom{n}{n} x^n  \]
 
 haben wir $p_4 = \binom{n}{4} $ und $q_2= \binom{n}{2}  $.
 
@@ -45,6 +45,44 @@ p_4 = 6q_2 &\iff \binom{n}{4} = 6 \binom{n}{2} \\
 Alle anderen möglichen Lösungen sind wegen Vorraussetzung $n\geq 2$ ungültig.
 
 \end{enumerate}
+
+
+\subsection*{Aufgabe 2}
+
+\[ \sum_{k=1}^{n} k\binom{n}{k} = n \cdot 2^{n-1} \]
+n=0:
+
+\begin{align*}
+\sum_{k=1}^{0} k\binom{0}{k} &= 0 \cdot 2^{0-1}  \\
+1\binom{0}{1} &= 0 \\
+1 \cdot 0 &= 0  \\
+\end{align*}
+
+n = n + 1:
+
+\[ \sum_{k=1}^{n+1} k\binom{n+1}{k} = (n+1)2^{n}  \]
+
+Forme nun LHS zu RHS um:
+
+\begin{align*}
+& (n+1)\binom{n+1}{n+1} + \sum_{k=1}^{n}k\binom{n+1}{k} \\
+& (n+1) + \sum_{k=1}^{n}k\binom{n}{k} + \sum_{k=1}^{n}k\binom{n}{k-1} \\
+& (n+1) + \sum_{k=1}^{n}k\binom{n}{k} + \sum_{k=1}^{n}(k-1)\binom{n}{k-1} + \sum_{k=1}^{n}\binom{n}{k-1} \\
+& (n+1) + \sum_{k=1}^{n}k\binom{n}{k} + \sum_{k=0}^{n-1}k\binom{n}{k} + n^{2} - 1 \\
+& (n+1) + \sum_{k=1}^{n}k\binom{n}{k} + \sum_{k=1}^{n}k\binom{n}{k} - n\binom{n}{n} + n^{2} - 1 \\
+& (n+1) + 2(\sum_{k=1}^{n}k\binom{n}{k}) - n + n^{2} - 1 \\
+& 2(\sum_{k=1}^{n}k\binom{n}{k}) + n^{2} \\
+& 2n2^{n-1} + n^{2} \\
+& n2^{n} + n^{2} \\
+& (n+1)2^{n} \\
+\end{align*}
+
+
+
+
+
+
+
 
 \subsection*{Aufgabe 3}
 \begin{enumerate}[a)]
