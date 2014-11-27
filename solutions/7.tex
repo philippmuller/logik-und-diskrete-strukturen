@@ -68,12 +68,12 @@ Forme nun LHS zu RHS um:
 & \iff (n+1)\binom{n+1}{n+1} + \sum_{k=1}^{n}k\binom{n+1}{k} \\
 & \iff (n+1) + \sum_{k=1}^{n}k\binom{n}{k} + \sum_{k=1}^{n}k\binom{n}{k-1} \\
 & \iff (n+1) + \sum_{k=1}^{n}k\binom{n}{k} + \sum_{k=1}^{n}(k-1)\binom{n}{k-1} + \sum_{k=1}^{n}\binom{n}{k-1} \\
-& \iff (n+1) + \sum_{k=1}^{n}k\binom{n}{k} + \sum_{k=0}^{n-1}k\binom{n}{k} + n^{2} - 1 \\
-& \iff (n+1) + \sum_{k=1}^{n}k\binom{n}{k} + \sum_{k=1}^{n}k\binom{n}{k} - n\binom{n}{n} + n^{2} - 1 \\
-& \iff (n+1) + 2\bp{\sum_{k=1}^{n}k\binom{n}{k}} - n + n^{2} - 1 \\
-& \iff 2\bp{\sum_{k=1}^{n}k\binom{n}{k}} + n^{2} \\
-& \iff 2(n2^{n-1}) + n^{2} \\
-& \iff n2^{n} + n^{2} \\
+& \iff (n+1) + \sum_{k=1}^{n}k\binom{n}{k} + \sum_{k=0}^{n-1}k\binom{n}{k} + 2^{n} - 1 \\
+& \iff (n+1) + \sum_{k=1}^{n}k\binom{n}{k} + \sum_{k=1}^{n}k\binom{n}{k} - n\binom{n}{n} + 2^{n} - 1 \\
+& \iff (n+1) + 2\bp{\sum_{k=1}^{n}k\binom{n}{k}} - n + 2^{n} - 1 \\
+& \iff 2\bp{\sum_{k=1}^{n}k\binom{n}{k}} + 2^{n} \\
+& \iff 2(n2^{n-1}) + 2^{n} \\
+& \iff n2^{n} + 2^{n} \\
 & \iff (n+1)2^{n} \\
 \end{align*}
 
@@ -198,37 +198,15 @@ print(result)
 
 \end{enumerate}
 
-      % automata stuff
-      % \begin{tikzpicture}[>=stealth',shorten >=1pt,auto,node distance=2cm]
-      % \node[initial,state,accepting]  (q0)     {$q_0$};
-      % \node[state, accepting]  (q1) [right of=q0]  {$q_1$};
-      % \node[state, accepting]  (q2) [right of=q1] {$q_2$};
-      % \node[state, accepting]  (q3) [right of=q2]  {$q_3$};
-      % \node[state, accepting]  (q4) [right of=q3] {$q_4$};
 
-      % \path[->] (q0) edge [loop above] node {0} (q0)
-      %            edge              node {1} (q1)
-      %       (q1) edge [loop above] node {0} (q1)
-      %            edge              node {1} (q2)
-      %       (q2) edge [loop above] node {0} (q2)
-      %            edge              node {1} (q3)
-      %       (q3) edge [loop above] node {0} (q3)
-      %            edge              node {1} (q4)
-      %       (q4) edge [loop above] node {0} (q4)
-      %       ;
-      % \end{tikzpicture}
+% ----------------------------
 
+\subsection*{Aufgabe 5}
+\begin{enumerate}
+  \item Ist L eine der Sprachen {v}, Ø oder {e}, dann ist L = $L^R$ und somit $L^R$ regulär.
+  \item Produkt:
+  \item Vereinigung:
 
+  \item Kleenescher Abschluss:
 
-      % more automata stuff
-      % \begin{tikzpicture}[>=stealth',shorten >=1pt,auto,node distance=2cm]
-      % \node[initial,state,accepting]  (q0)     {$q_0$};
-      % \node[state, accepting]  (q1) [right of=q0]  {$q_1$};
-
-
-      % \path[->] (q0) edge [loop above] node {1} (q0)
-      %            edge              node {0} (q1)
-      %       (q1) edge [bend left]  node {1} (q0)
-
-      %       ;
-      % \end{tikzpicture}
+\end{enumerate}
