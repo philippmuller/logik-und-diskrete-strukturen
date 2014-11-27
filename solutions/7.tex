@@ -204,11 +204,11 @@ print(result)
 
 \subsection*{Aufgabe 5}
 \begin{enumerate}
-  \item Ist L eine der Sprachen ${v}, \emptyset$ oder $\{\epsilon\}$, dann ist L = $L^R$ und somit $L^R$ regulär.
+  \item Ist $L$ eine der Sprachen ${v}, \emptyset$ oder $\{\epsilon\}$, dann ist $L=L^R$ und somit $L^R$ regulär.
   \item Produkt:
   \begin{align*}
     w = w_2w_1 \in L_2^R L_1^R &\iff w_2 \in L_2^R \land w_1 \in L_1^R \\
-    &\iff w_2^R \in L_2^R \land w_1^R \in L_1^R \\
+    &\iff w_2^R \in L_2 \land w_1^R \in L_1 \\
     &\iff w^R = w_2^R w_1^R \in L_1 L_2 \\
     &\iff w \in (L_1 L_2)^R \\
   \end{align*}
