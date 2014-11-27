@@ -140,27 +140,27 @@ Statt bis $n$ gehen wir nur noch bis $n-1$, daher haben wir oben $n+k-3$ anstatt
   \begin{enumerate}
     \item
       \begin{align*}
-        \br{\frac{\binom{4}{1} \binom{48}{4} }{ \binom{52}{5} }} &\cdot P(\geq \text{2 Asse}) \\
-                                    &= 1 - P(\text{0 Asse}) \cup P(\text{1 Ass})\\
-                                    &\underbrace{=}_{\text{Unabhängigkeit}} 1 - P(\text{0 Asse}) + P(\text{1 Ass})\\
-                                    &= 1- \br{ \underbrace{\frac{\binom{44}{4}}{\binom{47}{4}}}_{\text{0 Asse}} +
-                                        \frac{ \overbrace{\binom{3}{1}}^{\text{1 Ass fehlt}} \overbrace{\binom{44}{3}}^{\text{restliche 3 Karten ohne Asse}}}{ \binom{47}{4} } }\\
+        \br{\frac{\dbinom{4}{1} \dbinom{48}{4} }{ \dbinom{52}{5} }} &\cdot P(\geq \text{2 Asse}) \\
+                                    &= 1 - (P(\text{0 Asse}) \cup P(\text{1 Ass}))\\
+                                    &\underbrace{=}_{\text{Unabhängigkeit}} 1 - (P(\text{0 Asse}) + P(\text{1 Ass}))\\
+                                    &= 1- \br{ \underbrace{\frac{\dbinom{44}{4}}{\dbinom{47}{4}}}_{\text{0 Asse}} +
+                                        \frac{ \overbrace{\dbinom{3}{1}}^{\text{1 Ass fehlt}} \overbrace{\dbinom{44}{3}}^{\text{restliche 3 Karten ohne Asse}}}{ \dbinom{47}{4} } }\\
       \end{align*}
     \item
       \begin{align*}
-        \br{ \frac{ \binom{4}{2} \binom{12}{3} \binom{4}{1}^{3} }{ \binom{52}{5} }  }
-                &\cdot \br{ 1 - \underbrace{\frac{ \binom{45}{3} }{\binom{47}{3} }}_{\text{P(0 Asse)}} }
+        \br{ \frac{ \dbinom{4}{2} \dbinom{12}{3} \dbinom{4}{1}^{3} }{ \dbinom{52}{5} }  }
+                &\cdot \br{ 1 - \underbrace{\frac{ \dbinom{45}{3} }{\dbinom{47}{3} }}_{\text{P(0 Asse)}} }
       \end{align*}
 
     \item
       \begin{align*}
-        \br{ \frac{ \binom{4}{3} \binom{12}{2} \binom{4}{1}^{2} }{\binom{52}{5}} }
-          &\cdot \br{ \binom{12}{1} \binom{4}{1}^{2}{\binom{47}{2}} }
+        \br{ \frac{ \dbinom{4}{3} \dbinom{12}{2} \dbinom{4}{1}^{2} }{\dbinom{52}{5}} }
+          &\cdot \br{ \dbinom{12}{1} \dbinom{4}{1}^{2}{\dbinom{47}{2}} }
       \end{align*}
     \item
       \begin{align*}
-        \br{ \frac{ \binom{4}{4} \binom{12}{1} \binom{4}{1} }{\binom{52}{5}} }
-            &\cdot \br{\frac{\binom{12}{1}}{\binom{47}{1}}}
+        \br{ \frac{ \dbinom{4}{4} \dbinom{12}{1} \dbinom{4}{1} }{\dbinom{52}{5}} }
+            &\cdot \br{\frac{\dbinom{12}{1}}{\dbinom{47}{1}}}
       \end{align*}
 
     Dies liefert für die gesamte Wahrscheinlichkeit 0.00919164791085, also 0,919164791085\%.
