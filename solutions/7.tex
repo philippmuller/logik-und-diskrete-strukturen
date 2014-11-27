@@ -120,7 +120,81 @@ Statt bis $n$ gehen wir nur noch bis $n-1$, daher haben wir oben $n+k-3$ anstatt
 
   Vergleichen wir dies mit allen Möglichkeiten ergibt sich als Wahrscheinlichkeit $5 148 / 2598960=0.001980792317$.
 
-  \item dunno yet
+  \item Wenn der Spieler mindestens 3 Asse zu Ende haben muss und zu Austeilen mindestens eins hat, kann er nach dem Austeilen entweder 1, 2 , 3 oder 4 Asse halten, zusätzlich hält er jeweils noch andere Karten. Gegeben wieviele Asse der Spieler nach dem Austeilen hielt müssen wir berechnen, wie seine Wahrscheinlichkeit ist, nach dem Ablegen genug Asse zu ziehen um am Ende mindestens 3 zu halten.
+
+  Es ergeben sich also folgende Bedingungen:
+
+  \begin{tabular}{c c c c}
+    Fall & Nach Austeilen & Abgelegt werden & fehlende Asse für $\geq 3$\\
+    \hline
+    1 & 1 Ass & 4 Karten & $\geq 1$ Ass \\
+    2 & 2 Asse & 3 Karten & $\geq 2$ Asse \\
+    3 & 3 Asse & 2 Karten & keine \\
+    4 & 4 Asse & 1 Karte & keine \\
+  \end{tabular}
+
+  Gehen wir nun die Wahrscheinlichkeiten für die einzelnen Fälle durch. Das Ergebnis erhalten wir später durch aufsummieren, da die einzelnen Ereignisse unabhängig sind.
+
+  Wir werden erst schreiben, welche Wahrscheinlichkeit das jeweilige Blatt hat (1 Ass, 2 Asse usw.) und dann die Wahrscheinlichkeit multiplizieren, dass nach dem Ablegen noch genug Asse gezogen werden um mindestens 3 vorliegen zu haben. Letztere Wahrscheinlichkeiten sind konditional zu dem früheren Blatt, manche Karten sind also nicht mehr verfügbar.
+
+  \begin{enumerate}
+    \item
+      \begin{align*}
+        \br{\frac{\binom{4}{1} \binom{48}{4} }{ \binom{52}{5} }} &\cdot P(\geq \text{2 Asse}) \\
+                                    &= 1 - P(\text{0 Asse}) \cup P(\text{1 Ass})\\
+                                    &\underbrace{=}_{\text{Unabhängigkeit}} 1 - P(\text{0 Asse}) + P(\text{1 Ass})\\
+                                    &= 1- \br{ \underbrace{\frac{\binom{44}{4}}{\binom{47}{4}}}_{\text{0 Asse}} +
+                                        \frac{ \overbrace{\binom{3}{1}}^{\text{1 Ass fehlt}} \overbrace{\binom{44}{3}}^{\text{restliche 3 Karten ohne Asse}}}{ \binom{47}{4} } }\\
+      \end{align*}
+    \item
+      \begin{align*}
+        \br{ \frac{ \binom{4}{2} \binom{12}{3} \binom{4}{1}^{3} }{ \binom{52}{5} }  }
+                &\cdot \br{ 1 - \underbrace{\frac{ \binom{45}{3} }{\binom{47}{3} }}_{\text{P(0 Asse)}} }
+      \end{align*}
+
+    \item
+      \begin{align*}
+        \br{ \frac{ \binom{4}{3} \binom{12}{2} \binom{4}{1}^{2} }{\binom{52}{5}} }
+          &\cdot \br{ \binom{12}{1} \binom{4}{1}^{2}{\binom{47}{2}} }
+      \end{align*}
+    \item
+      \begin{align*}
+        \br{ \frac{ \binom{4}{4} \binom{12}{1} \binom{4}{1} }{\binom{52}{5}} }
+            &\cdot \br{\frac{\binom{12}{1}}{\binom{47}{1}}}
+      \end{align*}
+
+    Dies liefert für die gesamte Wahrscheinlichkeit 0.00919164791085, also 0,919164791085\%.
+    Ausgerechnet mit folgendem Code (Python3.4):
+
+    \begin{verbatim}
+import scipy.special as sp
+
+first = (sp.binom(4,1) * sp.binom(48,4)) / (sp.binom(52,5))
+
+first_2 = 1 - ((sp.binom(44,4) + sp.binom(3,1) * sp.binom(44,3))
+  / (sp.binom(47,4)))
+
+second = (sp.binom(4,2) * sp.binom(12,3) * sp.binom(4,1)**3)
+  / (sp.binom(52,5))
+
+second_2 = 1 - (sp.binom(45,3) / sp.binom(47,3))
+
+third = (sp.binom(4,3) * sp.binom(12,2) * sp.binom(4,1)**2)
+  / (sp.binom(52,5))
+
+third_2 = (sp.binom(12,1) * sp.binom(4,1)**2) / (sp.binom(47,2))
+
+forth = (sp.binom(4,4) * sp.binom(12,1) * sp.binom(4,1))
+  / (sp.binom(52,5))
+
+forth_2 = (sp.binom(12,1)) / (sp.binom(47,1))
+
+result = first*first_2 + second*second_2 + third*third_2 + forth*forth_2
+
+print(result)
+    \end{verbatim}
+
+  \end{enumerate}
 
 \end{enumerate}
 
