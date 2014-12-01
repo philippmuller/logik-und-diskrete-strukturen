@@ -26,7 +26,7 @@
          aller $L^{i}, i \geq 1$, wobei $L^{0}$ nur das leere Wort enthält.
          Da $L^{*}$ die Vereinigung von $L^{+}$
  und $\{\epsilon\}$ ist, erhalten wir auch leicht einen nichtdeterministischen
- Automaten für $L^{*}$.
+ Automaten für $L^{*}$. Eigentlich muss hier noch gezeigt werden, dass $\epsilon$- DFAs gleichmächtig sind wie DFAs.
 \end{enumerate}
 
 \subsection*{Aufgabe 2}
@@ -35,38 +35,40 @@
 \item $L_1 = \{ w_1 \ldots w_n \in \Sigma^{*} \given{n\geq 1 \land (w_1 = 0 \lor w_n = 1)} \} $
 
 Es gilt also entweder, dass 1 am Ende oder 0 am Anfang des Wortes steht. Mit $n=1$ kann das entstehende Wort $w_1 = w_n$ entweder 0 oder 1 sein. Wir können also schreiben
-\[ L_1 = (0) \cup (0 \cup 1)^{*} \cup (1) \]
+\[ R_1 = 0 (0 + 1)^{*} + (0+1)^{*}1 \]
 
 \item $L_2 = \{w_1, \ldots w_n \in \Sigma^{*} \given{n\geq 3 \; \text{und} \; \exists i \in \{ 1, \ldots, n-2 \} : w_i = w_{i+1} = w_{i+2} = 0 } \}$
 
 Das heißt in jedem Wort ist 000 enthalten, wobei es auch hierauf enden darf. Wir können also schreiben:
 
-\[ L_2 = (0 \cup 1)^{*} \, 000 \, (0 \cup 1)^{*} \]
+\[ R_2 = (1+0)^{*} \, 0^3 \, (1+0)^{*} \]
 
 \item $ L_3 = \{ w_1, \ldots w_n \given{ \forall i \in \{1, \ldots, n\}: \; w_i = 1 \implies (i<n \land w_{i+1} = 0) } \} $
 
 Für jedes Wort gilt also $n \geq 2$, weil für $i$ auch $i+1$ als Index existieren muss. 10 ist daher zulässig, auf jede 1 muss eine 0 folgen, 1 darf nicht das Ende des Wortes bilden. Daher:
 
-\[ L_3 = (0)^{*} \cup (10)^{*} \, 10  \]
+\[ R_3 = ((10) + 0)^{*} \]
 
 \end{enumerate}
 
 \subsection*{Aufgabe 3}
 
 \begin{enumerate}[a)]
-  \item Akzeptierte Sprache: $L(M)= (0)^{*} \, 1 \, (0 \cup 1)^{*}  $\\
+  \item Akzeptierte Sprache: $L(M)= (0)^{*} \, 1 \, (0 + 1)^{*}  $\\
   \item
 
   \begin{tikzpicture}[>=stealth',shorten >=1pt,auto,node distance=2cm]
       \node[initial,state]  (q0)     {$q_0$};
       \node[state, accepting]  (q1) [right of=q0]  {$q_1$};
 
-      \path[->] (q0) edge [loop above] node {a} (q0)
-                 edge   [bend left]   node {b} (q1)
-                (q1) edge [loop above] node {b} (q1)
-                 edge   [bend left]  node {a} (q0)
+      \path[->] (q0) edge  (q0)
+                 edge   [bend left]   node {a} (q1)
+                (q1) edge [loop above] node {a,b} (q1)
+                 edge   [bend left]  node {b} (q0)
             ;
       \end{tikzpicture}
+
+      Begründung der Korrektheit fehlte.
 \end{enumerate}
 
 
@@ -121,16 +123,40 @@ n+1 &= f(x,y) + 1\\
     &=
     \begin{dcases}
         \dfrac{(x-1+y+1)(x-1+y+1+1)}{2}+y+1 \\
-        = f(-x, y+1) & x \in \N_{>0}\\[2em]
+        = f(-x, y+1) & x \in \N_{>1}\\[2em]
         \dfrac{y(y+1)}{2}+y+1 = \dfrac{(y+2)(y+1)}{2} \\
         = \dfrac{(y+1)(y+2)}{2} \\
-        = f(y+1, 0) = f(y+1,x) & x=0 \\
+        = f(y+1, 0) = f(y+1,x) & x=1 \\
     \end{dcases}
 \end{align*}
 \end{enumerate}
 
 $f$ ist also injektiv und surjektiv und damit bijektiv.
 
+
+==========================================================
+Falsche Funktion abgeschrieben, nochmal:
+
+\begin{align*}
+
+f(x,y) = y + \sum_{k=1}^{x+y-2} k \\
+\text{injektiv:} 0 = f(x_1, y_2)- f(x_2, y_2) = y_1 - y_2 + \sum_{k=1}^{x_1 + y_1 - 2} - \sum_{k=1}^{x_2+y_2 - 2}k\\
+\text{1. Fall:} \; x_1 + y_2 = x_2 + y_2 \implies (x_1,y_1) \land (x_2, y_2) \; \text{auf gleicher Diagonale} \\
+f(x_1, y_1) - f(x_2, y_2) = y_2 - y_1 \neq 0 \\
+
+\text{2. Fall:} \; x_1 + y_1 \neq x_2+y_2 \text{nicht auf gleicher Diagonale} \\
+\text{analog zu obiger Lösung, nur andere Funktion einsetzen.}
+\end{align*}
+
+Surjektiv: Sei $n$ auf Diagonale, dann gilt
+\[  (\sum_{k=1}^{n-1}k) + 1 \leq n \leq \sum_{k=1}^{n-1}k   \]
+
+Sei \[  y = n- \sum_{k=1}^{n-1}, \; x = m - y + 1, \; y \in \{ 1, \ldots, n \}, x \in \{ 1, \ldots, n \}  \]
+
+Mit $(x,y)\in \N \times \N$ gilt:
+\[ x + y - 2 = (m - y + 1) + y -2 = m-1 \]
+\[ f(x,y) = y - \sum_{k=1}^{x+y-2}k = (n-\sum_{k=1}^{m1}k) + \sum_{k=1}^{n-1}=n \]
+Dahr ist f surjektiv und somit bijektiv.
 
       % automata stuff
       % \begin{tikzpicture}[>=stealth',shorten >=1pt,auto,node distance=2cm]
