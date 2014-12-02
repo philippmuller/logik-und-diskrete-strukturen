@@ -32,13 +32,16 @@ Induktionsschritt $n \to n+1$:
    &=\sum_{i=0}^{2n} \frac{i^2}{2} + \sum_{i=0}^{2n} 2i
     + \sum_{i=4}^{2n +4} \frac{i^2}{2} - \sum_{i=4}^{2n +4} 2i
     - \sum_{i=2}^{2n+2} i^2 + \sum_{i=2}^{2n+2} i + \sum_{i=2}^{2n+2} 2 \\
-   &=\frac{\sum_{i=0}^{2n}i^2}{2} + 2\sum_{i=0}^{2n}i
-    + \frac{(2n+4)(2n+4+1)(2(2n+4)+1)}{12} + 4n - 9 \\
-    &- \frac{(2n+2)(2n+2+1)(2(2n+2)+1)}{6} + \frac{(2n+2)(2n+2)+1)}{2} \\
-    \\
-   &=\frac{n(2n+1)(2(2n)+1)}{6} + n(2n+1)
-    + \frac{\sum_{i=0}^{2n +4}i^2}{2} - 7
-    - \sum_{i=0}^{2n + 2} i^2 - 1 + \sum_{i=0}^{2n + 2} i - 1 + 4n \\
+  & \frac{\sum_{i=0}^{2n}i^2}{2} + 2\sum_{i=0}^{2n} i
+   + \underbrace{\frac{\sum_{i=0}^{2n+4} i^2}{2}}_{= \frac{ \sum_{i=0}^{2n} i^2 }{2}
+   + \frac{(2n+1)^2 + (2n+2)^2 + (2n+3)^2
+   + (2n+4)^2 }{2} } - \underbrace{  \frac{1}{2} + \frac{4}{2} + \frac{9}{2}  }_{=7} \\
+   & - \underbrace{\sum_{i=0}^{2n+2} i^2}_{= \sum_{i=0}^{2n} i + (2n+1)^2 + (2n+2)^2 }  - 1 + \sum_{i=0}^{2n+2}i - 1 + 4n \\
+   & = 2n(2n+1) + \frac{(2n+1)^2 + (2n+2)^2 + (2n+3)^2 + (2n+4)^2}{2} + \underbrace{\frac{(2n+2)(2n+3)}{2}}_{ = \underbrace{\frac{4n^2 + 6n + 4n + 6}{2}}_{=2n^2 + 5n + 3} } + 4n - 9 \\
+   & = 4n^2 + 2n + \frac{4n^2 + 4n + 1 + 4n^2 + 8n + 4 + 4n^2 + 12n + 9 + 4n^2 + 16n + 16}{2} \\
+   &+ 2n^2 + 5n + 3 + 4n - 9 \\
+   & = \frac{16 n^2 + 40n + 30}{2} + 3n^2 + 11n - 9 \\
+   & = 11n^2 + 55n + 21 \\
 \end{align*}
 
 \end{enumerate}
@@ -69,8 +72,8 @@ Induktionsschritt $n \to n+1$:
     \item \textbf{Neutrales Element}
       Wir suchen ein Element $e = (e_1, e_2)$, welches folgende Bedingung erfüllt:
       \begin{align*}
-        \underbrace{(x_1,x_2)\#(e_1, e_2)}_{=(x_1, e_2)} &= (x_1, x_2) \\
-                              &= (e_1, e_2) \# (x_1, x_2) \\
+        \underbrace{(x_1,x_2)\#(e_1, e_2)}_{=(x_1, e_2)} &\overset{!}{=} (x_1, x_2) \\
+                              &\overset{!}{=} (e_1, e_2) \# (x_1, x_2) \\
                               &= (e_1, x_2) \\
                 \implies (x_1, e_2) \overset{!}{=} (e_1, x_2) \overset{!}{=} (x_1, x_2) \\
       \end{align*}
