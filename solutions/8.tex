@@ -35,10 +35,13 @@ Induktionsschritt $n \to n+1$:
   & \frac{\sum_{i=0}^{2n}i^2}{2} + 2\sum_{i=0}^{2n} i
    + \underbrace{\frac{\sum_{i=0}^{2n+4} i^2}{2}}_{= \frac{ \sum_{i=0}^{2n} i^2 }{2}
    + \frac{(2n+1)^2 + (2n+2)^2 + (2n+3)^2
-   + (2n+4)^2 }{2} } -
-    \underbrace{  \frac{1}{2} + \frac{4}{2} + \frac{9}{2}  }_{=7} \\
+   + (2n+4)^2 }{2} } - \underbrace{  \frac{1}{2} + \frac{4}{2} + \frac{9}{2}  }_{=7} \\
    & - \underbrace{\sum_{i=0}^{2n+2} i^2}_{= \sum_{i=0}^{2n} i + (2n+1)^2 + (2n+2)^2 }  - 1 + \sum_{i=0}^{2n+2}i - 1 + 4n \\
-   & = 2n(2n+1) + \frac{(2n+1)^2 + (2n+2)^2 + (2n+3)^2 + (2n+4)^2}{2} + \underbrace{\frac{(2n+2)(2n+3)}{2}}_{ = \underbrace{\frac{4n^2 + 6n + 4n + 6}{2}}_{=2n^2 + 5n + 3} } + 4n - 9
+   & = 2n(2n+1) + \frac{(2n+1)^2 + (2n+2)^2 + (2n+3)^2 + (2n+4)^2}{2} + \underbrace{\frac{(2n+2)(2n+3)}{2}}_{ = \underbrace{\frac{4n^2 + 6n + 4n + 6}{2}}_{=2n^2 + 5n + 3} } + 4n - 9 \\
+   & = 4n^2 + 2n + \frac{4n^2 + 4n + 1 + 4n^2 + 8n + 4 + 4n^2 + 12n + 9 + 4n^2 + 16n + 16}{2} \\
+   &+ 2n^2 + 5n + 3 + 4n - 9 \\
+   & = \frac{16 n^2 + 40n + 30}{2} + 3n^2 + 11n - 9 \\
+   & = 11n^2 + 55n + 21 \\
 \end{align*}
 
 \end{enumerate}
