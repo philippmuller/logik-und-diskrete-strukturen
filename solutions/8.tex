@@ -3,7 +3,7 @@
 
 \subsection*{Aufgabe 1}
 \begin{enumerate}[a)]
-\item
+\item Zu zeigen: $  \sum_{k=1}^n (2k-1) = n^2 $\\[1em]
 Induktionsanfang: \[ \sum_{k=1}^1 (2k-1) = 2-1 = 1 = 1^2 \checkmark \]
 
 
@@ -25,3 +25,156 @@ Induktionsschritt $n \to n+1$:
               \end{cases} \]
 
 \end{enumerate}
+
+
+\subsection*{Aufgabe 3} % (fold)
+\label{sub:aufgabe_3}
+\begin{enumerate}[a)]
+  \item Betrachte $ (\R^2, \#) $ mit $ (x_1, x_2)\# (y_1, y_2) = (x_1, y_2) $.
+  \begin{enumerate}[i)]
+    \item \textbf{Assoziativität}
+      \begin{align*}
+        \br{ (x_1, x_2) \# (y_1, y_2) } \# (z_1, z_2) &= (x_1, y_2) \# (z_1, z_2) \\
+                                                      &= (x_1, z_2) \\
+        (x_1, x_2) \br{ (y_1, y_2) \# (z_1, z_2) } &= (x_1, x_2) \# (y_1, z_2) \\
+                                                   &= (x_1, z_2) \\
+      \end{align*}
+      Daher ist $\#$ assoziativ.
+    \item \textbf{Neutrales Element}
+      Wir suchen ein Element $e = (e_1, e_2)$, welches folgende Bedingung erfüllt:
+      \begin{align*}
+        \underbrace{(x_1,x_2)\#(e_1, e_2)}_{=(x_1, e_2)} &= (x_1, x_2) \\
+                              &= (e_1, e_2) \# (x_1, x_2) \\
+                              &= (e_1, x_2) \\
+                \implies (x_1, e_2) \overset{!}{=} (e_1, x_2) \overset{!}{=} (x_1, x_2) \\
+      \end{align*}
+      Es muss also $e_2 \overset{!}{=} x_2$ und $e_1 \overset{!}{=} x_1$ gelten. \\
+      Daher können wir kein eindeutiges neutrales Element $e$ für alle $(x_1, x_2)$ finden, da die Wahl von $e$ abhängig von der Wahl von $x$ ist.
+
+      \item \textbf{Inverses Element} Weil kein neutrales Element existiert, kann auch kein inverses Element $b$ existieren, da dieses definiert ist als $x\# b = e, \; \forall x$.
+      \item \textbf{Kommutativität}
+      Wir prüfen
+      \begin{align*}
+        (x_1, x_2) \# (y_1, y_2) &= (x_1, y_2) \\
+                                 &\neq (y_1, x_2) \\
+                                 &= (y_1, y_2) \# (x_1, x_2) \\
+      \end{align*}
+      und sehen, dass $\#$ nicht kommutativ ist. Daher handelt es sich hier um eine nicht-kommutative Halbgruppe.
+  \end{enumerate}
+%
+%
+%
+  \item $(\Z, \star) \; \text{mit} \; x \star y = x + y - 1$
+    \begin{enumerate}[i)]
+      \item \textbf{Assoziativität}
+      \begin{align*}
+        (x \star y) \star z &= (x + y - 1) \star z \\
+                            &= x + y + z - 1 - 1 \\
+                            &= x + y + z -2 \\
+        x \star (y \star z) &= x \star (y + z -1) \\
+                            &= x + y + z - 1 - 1 \\
+                            &= x + y + z - 2 \\
+              \end{align*}
+        Daher ist $\star$ assoziativ.
+
+    \item \textbf{Neutrales Element}
+      Wir suchen ein Element $e$ mit $e: \; e \star x\overset{!}{=} x \star e \overset{!}{=} x$. Wir haben also
+      \begin{align*}
+        x \star e &= x + e - 1 \\
+        e \star x = e + x - 1 \\
+      \end{align*}
+
+      Wähle $e=1$, dann gilt $ \forall x \in \Z  $, dass
+      \[
+        x \star e = x \star 1 = x + 1 - 1 = x = 1 + x - 1 = 1 \star x = e \star x
+      \]
+      Daher haben wir mit $e=1$ ein neutrales Element.
+
+      \item \textbf{Inverses Element}
+        Suche $ b \star x \overset{!}{=} e = 1 $.
+        \[
+          b \star x = b + x - 1 \iff b = -x + 2 \; \text{wenn} \; b \star x \overset{!}{=} 1 \; \text{gelten soll.}
+        \]
+        Da $-x \notin \Z$ haben wir kein inverses Element.
+      \item \textbf{Kommutativität}
+        Es gilt
+        \[
+          x \star y = x + y - 1 = y + x - 1 = y \star x
+        \]
+        Daher handelt es sich um einen kommutativen Matroid.
+    \end{enumerate}
+
+    \item $  (\{  0,1 \}^{n}, \cdot ) $ mit $  (a_1 , \ldots, a_n) \cdot (b_1, \ldots b_n) = (a_1 b_1, \ldots, a_n b_n) $. Dies stellt die Multiplikation von binären Polynomen (also deren Koeffizienten) dar.
+    %
+    %
+      \begin{enumerate}[i)]
+      \item \textbf{Assoziativität}
+        \begin{align*}
+          \br{ (a_1, \ldots, a_n)\cdot (b_1, \ldots, b_n) } \cdot (c_1, \ldots c_n)
+          &= (a_1 b_1 , \ldots, a_n b_n) \cdot (c_1, \ldots, c_n)\\
+          = (a_1 b_1 c_1, \ldots , a_n b_n c_n)
+          &= (a_1, \ldots, a_n) \cdot \br{ (b_1 c_1 , \ldots, b_n c_n) } \\
+          &= (a_1, \ldots, a_n) \cdot \br{ (b_1, \ldots, b_n) \cdot (c_1, \ldots, c_n) }
+        \end{align*}
+        Daher ist $\cdot$ assoziativ.
+
+      \item \textbf{Neutrales Element}
+        Suche $  (e_1, \ldots, e_n) $ so, dass
+        \begin{align*}
+          (a_1 \ldots a_n) \cdot (e_1, \ldots, e_n) &\overset{!}{=} (a_1, \ldots, a_n) \\
+                  &\overset{!}{=} (e_1, \ldots, e_n) \cdot (a_1, \ldots, a_n)
+        \end{align*}
+        Wählen wir $e = (e_1, \ldots, e_n) = (1, \ldots, 1)$, dann folgt
+        \begin{align*}
+          (a_1, \ldots, a_n) \cdot (e_1, \ldots, e_n) = (a_1, \ldots, a_n) \cdot (1, \ldots, 1) = (a_1 1 , \ldots , a_n 1)\\ = (a_1, \ldots, a_n) = (1 a_1 , \ldots 1 a_n)
+           = (1, \ldots, 1) \cdot (a_1, \ldots, a_n) = (e_1, \ldots, e_n) (a_1, \ldots, a_n)
+        \end{align*}
+        Daher haben wir ein neutrales Element gefunden.
+      \item \textbf{Inverses Element}
+        Wir suchen $  b = (b_1, \ldots b_n) $ so, dass
+        \[
+          (a_1, \ldots, a_n) \cdot (b_1, \ldots, b_n) \overset{!}{=} (e_1, \ldots, e_n) = (1, \ldots, 1)
+        \]
+        Über $ \{0,1\} $ existiert ein solches $b$ nicht, da $1 \cdot 1 = 1$, jedoch für $a_i = 0$ kein $b$ existiert mit $a_i \cdot b = 1$, also $0 \cdot b = 1$.
+
+      \item \textbf{Kommutativität}
+        \begin{align*}
+          (a_1, \ldots, a_n) \cdot (b_1, \ldots, b_n) = (a_1 b_1, \ldots, a_n b_n) \\
+          = (b_1 a_1 , \ldots, b_n a_n) = (b_1, \ldots, b_n) \cdot (a_1, \ldots, a_n)
+        \end{align*}
+
+      Daher haben wir einen kommutativen Monoid.
+
+    \end{enumerate}
+    %
+    %
+\end{enumerate}
+% subsection aufgabe_3 (end)
+%
+%
+%
+\subsection*{Aufgabe 4} % (fold)
+\label{sub:aufgabe_4}
+
+Sei $(M, \star)$, $M \neq \emptyset$ und $\star$ eine Verknüpfung auf $M$. Definiere $\circ$ als Verknüpfung auf $\mathcal{P}(M)$ durch $  A \circ B = \{  a \star b \given{a \in A \land b \in B} \} $.
+
+\begin{enumerate}[a)]
+  \item Zu zeigen: $(M, \star)$ ist Halbgruppe $\implies$ $(\mathcal{P}(M), \circ)$ ist Halbgruppe.
+  Sei $(M, \star)$ Halbgruppe. Dann ist $\star$ assoziativ, d.h. es existieren $a,b,c \in M$ mit
+  \[
+    (a \star b) \star c = a \star (b \star c)
+  \]
+
+  Da für alle $a \in A$ und $b \in B$ gilt, dass $A, B \in (\mathcal{P}(M)$. Für die Potenzmenge gilt, dass $(\mathcal{P}(M) = \{  X \given X \subseteq M \}$, also alle Mengen in $(\mathcal{P}(M)$ entweder $M$ oder Teilmengen von $M$ sind und $\circ$ auf diesen elementweise ausgeführt wird vererbt sich die Assoziativität von $\star$, somit ist $(\mathcal{P}(M)$ auch assoziativ, wenn $(M, \star)$ assoziativ ist und damit auch Halbgruppe, wenn $(M, \star)$ Halbgruppe ist.
+
+  \item Zu zeigen: $(M, \star)$ ist Monoid $\implies$ $(\mathcal{P}(M), \circ)$ ist Monoid.
+
+  Die Assoziativität nehmen wir aus $(i)$, dann ist noch zu zeigen, dass wir in $\mathcal{P}(M)$ das gleiche neutrale Element haben wie $(M, \star)$. Dies gilt offensichtlich, wenn das neutrale Element in $U \subset M$ enthalten ist, weil schon für alle $x \in M$ gilt, dass $e \star x = x$ für $x \in M$. Daher ist $(\mathcal{P}(M), \circ)$ auch ein Monoid, wenn $(M, \star)$ ein Monoid ist.
+
+  \item Zu zeigen: $(M, \star)$ ist Gruppe $\implies$ $(\mathcal{P}(M), \circ)$ ist Gruppe.
+
+  Wir müssen also noch die inversen Elemente betrachten, die zusätzlich zu der Assoziativität und der Existenz eines neutralen Elements für eine Gruppe notwendig sind. Hier bekommen wir jedoch Probleme, da Teilmengen von $M$ keine Inversen haben können, selbst wenn $(M, \star)$ inverse Elemente hat. Beispielsweise für $  \{\emptyset\}  $ finden wir kein inverses Element, so dass gelten würde $b \star \emptyset = e$, mit $b$ als inverses Element.
+
+\end{enumerate}
+
+% subsection aufgabe_4 (end)
