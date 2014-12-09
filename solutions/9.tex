@@ -86,3 +86,31 @@ $(R, +, \cdot)$ kommutativer Ring mit $0$ als neutrales Element der Addition und
 
 
 \end{enumerate}
+
+
+
+\subsection*{Aufgabe 3}
+$x_0 := 8778, x_1 := 3230 \\$
+\begin{enumerate}[a)]
+  \item Primfaktorzerlegung:
+  Teile durch Primzahlen beginnend mit 2. Rekursiv angewendet ergibt sich:
+\begin{align*}
+8778 &= 2 \cdot 3 \cdot 7 \cdot 11 \cdot 19 \\
+3230 &= 2 \cdot 5 \cdot 17 \cdot 19 \\
+\end{align*}
+Gemeinsame Primfaktoren: $2$ und $19$, also ist $ggT(8778, 3230) = 2 \cdot 19 = 38$.
+  \item Euklid:
+\begin{align*}
+x_{i+1} :&= x_{i-1} \mod x_i \\
+x_2 &= 8778 \mod 3230 = 2318 \\
+x_3 &= 912 \\
+x_4 &= 494 \\
+x_5 &= 418 \\
+x_6 &= 76 \\
+x_7 &= 38 \\
+x_8 &= 0 \\
+\end{align*}
+Alos ist $ggT(8778, 3230) = x_7 = 38$.
+\end{enumerate}
+
+
