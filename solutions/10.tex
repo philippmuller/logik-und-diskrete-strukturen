@@ -5,7 +5,7 @@
 
 Betrachte $Q = \{a + b \cdot \sqrt{2} \given{ a, b \in \Q}\} \subseteq \R.$
 
-Zeigen Sie, dass $\Q$ zusammen mit der Addition und Multiplikation aus $\R$ einen Körper bildet.
+Zeigen Sie, dass $Q$ zusammen mit der Addition und Multiplikation aus $\R$ einen Körper bildet.
 
 \begin{itemize}
   \item Assoziativität:
@@ -19,7 +19,7 @@ Zeigen Sie, dass $\Q$ zusammen mit der Addition und Multiplikation aus $\R$ eine
 
   \item Neutrales Element:
 
-  Wir suchen $a + e = e + a = a$ für $a, e \in \Q$.
+  Wir suchen $a + e = e + a = a$ für $a, e \in Q$.
 
   \[  a_1 + b_1 \sqrt{2} + (a_e + b_e \sqrt{2}) = a_1 + b_1 \sqrt{2}  \]
 
@@ -34,22 +34,64 @@ Zeigen Sie, dass $\Q$ zusammen mit der Addition und Multiplikation aus $\R$ eine
 
  \begin{align*}
    &\equiv (a_1 + b_2 \sqrt{2}) + a_1^{\star} + b_1^{\star}\sqrt{2} = 0 \\
-   &\iff (a_1 + b_1 \sqrt{2}) - (a_1 + b_1 \sqrt{2}) = 0\\
+   &\iff (a_1 + b_1 \sqrt{2}) - (a_1 + b_1 \sqrt{2}) = 0 \\
    &\implies (a_1, b_1)^{-1} = -(a_1, b_1) = (-a_1, -b_1) = x_1^{-1}
  \end{align*}
 
  \item Kommutativität
 
   \begin{align*}
-    &x_1 + x_2 = x_2 + x_1, \; x_1, x_2 \in \Q \\
+    &x_1 + x_2 = x_2 + x_1, \; x_1, x_2 \in Q \\
     &\equiv (a_1 + b_1 \sqrt{2}) + (a_2 + b_2 \sqrt{2})\\
     & \text{Mit den Rechenregeln der Addition über $\Q$ haben wir} \\
     & (a_1 + b_1 \sqrt{2}) + (a_2 + b_2 \sqrt{2}) = (a_2 + b_2 \sqrt{2}) + (a_1 + b_1 \sqrt{2}) \\
   \end{align*}
   Damit haben wir eine abelsche Gruppe.
 
-  \item Assoziativität der multiplikativen Verknüpfung $(a, \cdot)$
+  \item Assoziativität der multiplikativen Verknüpfung $(Q, \cdot)$. Zu zeigen: $(x_1 \cdot x_2) \cdot x_3 = x_1 \cdot (x_2 \cdot x_3)$.
 
+  \begin{align*}
+  &((a_1 + b_1 \cdot \sqrt{2}) (a_2 + b_2 \cdot \sqrt{2})) \cdot (a_3  + b_3 \cdot \sqrt{2}) \\
+    &\text{Mit Rechenregeln aus $\Q$ folgt}\\
+    &\equiv (a_1 + b_1 \cdot \sqrt{2}) ((a_2 + b_2 \cdot \sqrt{2}) \cdot (a_3  + b_3 \cdot \sqrt{2}))
+  \end{align*}
+  Damit haben wir $(x_1 \cdot x_2) \cdot x_3 = x_1 \cdot (x_2 \cdot x_3)$.
   \item Distributivität
 
+  Zu zeigen: $  x_1 \cdot (x_2 + x_3) = x_1 \cdot x_2 + x_1 \cdot x_3 , \; x_1, x_2, x_3 \in Q $
+
+  \begin{align*}
+    &(a_1 + b_1 \cdot \sqrt{2}) \cdot ((a_2 + b_2 \cdot \sqrt{2})+(a_3 + b_3 \cdot \sqrt{2} )) \\
+    &\text{Mit den normalen Rechenregeln haben wir wieder} \\
+    &\equiv (a_1 + b_1\cdot\sqrt{2})\cdot(a_2 + b_2 \cdot \sqrt{2}) +
+      (a_1 + b_1 \cdot \sqrt{2}) \cdot (a_3 + b_3 \cdot \sqrt{2})\\
+  \end{align*}
+
+
 \end{itemize}
+
+\subsection*{Aufgabe 2}
+
+\begin{tabular}{c|cccccc}
+    $\odot_7$
+      & \dbr{1} & \dbr{2} & \dbr{3} & \dbr{4} & \dbr{5} & \dbr{6} \\
+    \hline
+    \dbr{1} & 1 & 2 & 3 & 4 & 5 & 6 \\
+    \dbr{2} & 2 & 4 & 6 & 1 & 3 & 5 \\
+    \dbr{3} & 3 & 6 & 2 & 5 & 1 & 4 \\
+    \dbr{4} & 4 & 1 & 5 & 2 & 6 & 3 \\
+    \dbr{5} & 5 & 3 & 1 & 6 & 4 & 2 \\
+    \dbr{6} & 6 & 5 & 4 & 3 & 2 & 1 \\
+
+    \end{tabular}
+
+    Wie oben ersichtlich haben wie als erzeugendes Element \dbr{3} und \dbr{5}. Die Gruppe $(\Z / 7\Z, \odot_7)$ ist zyklisch, weil eben solche Erzeuger existieren. Wir haben nämlich
+    \begin{align*}
+      3^1 \mod 7 &= 3 \\
+      3^2 \mod 7 &= 2 \\
+      3^3 \mod 7 &= 6 \\
+      3^4 \mod 7 &= 4 \\
+      3^5 \mod 7 &= 5 \\
+      3^6 \mod 7 &= 1 \\
+    \end{align*}
+    Damit haben wir ein $a \in G$ gefunden, so dass für alle $g \in G$ ein $j \in \Z$ existiert mit $g = a^j$.
