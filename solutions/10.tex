@@ -1,0 +1,55 @@
+\section*{Blatt 10}
+%
+
+\subsection*{Aufgabe 1}
+
+Betrachte $Q = \{a + b \cdot \sqrt{2} \given{ a, b \in \Q}\} \subseteq \R.$
+
+Zeigen Sie, dass $\Q$ zusammen mit der Addition und Multiplikation aus $\R$ einen Körper bildet.
+
+\begin{itemize}
+  \item Assoziativität:
+
+  \begin{align*}
+    &((a_1 + b_1 \cdot \sqrt{2}) + (a_2 + b_2 \cdot \sqrt{2})) + (a_3 + b_3 \cdot \sqrt{2}) \\
+    &\equiv (a_1 + b_1 \cdot \sqrt{2}) + (a_2 + b_2 \cdot \sqrt{2}) + (a_3 + b_3 \cdot \sqrt{2}) \\
+    &\equiv a_1 + a_2 + a_3 + b_1 \cdot \sqrt{2} + b_2 \cdot \sqrt{2} + b_3 \cdot \sqrt{2} \\
+    &\equiv (a_1 + b_1 \cdot \sqrt{2}) + ((a_2 + b_2 \cdot \sqrt{2}) + (a_3 + b_3 \cdot \sqrt{2}))
+  \end{align*}
+
+  \item Neutrales Element:
+
+  Wir suchen $a + e = e + a = a$ für $a, e \in \Q$.
+
+  \[  a_1 + b_1 \sqrt{2} + (a_e + b_e \sqrt{2}) = a_1 + b_1 \sqrt{2}  \]
+
+  Da 0 das neutrale Element der Addition ist können wir $a_e = b_e = 0$ wählen.
+
+  \item Inverses Element:
+
+  Es soll gelten, dass
+
+  \[  x_1 + x_1^{-1} = e = 0, \; x_1, x_1^{-1} \in \Q  \]
+ Daher
+
+ \begin{align*}
+   &\equiv (a_1 + b_2 \sqrt{2}) + a_1^{\star} + b_1^{\star}\sqrt{2} = 0 \\
+   &\iff (a_1 + b_1 \sqrt{2}) - (a_1 + b_1 \sqrt{2}) = 0\\
+   &\implies (a_1, b_1)^{-1} = -(a_1, b_1) = (-a_1, -b_1) = x_1^{-1}
+ \end{align*}
+
+ \item Kommutativität
+
+  \begin{align*}
+    &x_1 + x_2 = x_2 + x_1, \; x_1, x_2 \in \Q \\
+    &\equiv (a_1 + b_1 \sqrt{2}) + (a_2 + b_2 \sqrt{2})\\
+    & \text{Mit den Rechenregeln der Addition über $\Q$ haben wir} \\
+    & (a_1 + b_1 \sqrt{2}) + (a_2 + b_2 \sqrt{2}) = (a_2 + b_2 \sqrt{2}) + (a_1 + b_1 \sqrt{2}) \\
+  \end{align*}
+  Damit haben wir eine abelsche Gruppe.
+
+  \item Assoziativität der multiplikativen Verknüpfung $(a, \cdot)$
+
+  \item Distributivität
+
+\end{itemize}
