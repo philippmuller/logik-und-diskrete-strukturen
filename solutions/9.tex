@@ -175,4 +175,22 @@ f_4 &= 1 \cdot f_3 + f_2 \\
 f_3 &= 2 \cdot f_2 + 0 \\
 \end{align*}
 
-Der letzte Term gilt, da $3 = f_3 = 2 \cdot f_2$, da $f_2 = 1$. Damit terminiert der Algorithmus nach $f_3$ und wir haben $k+1-2 = k-1$ Iterationen.
+Der letzte Term gilt, da $3 = f_3 = 2 \cdot f_2$, da $f_2 = 1$. Damit terminiert der Algorithmus nach $f_3$ und wir haben $k+1-2 = k-1$ Iterationen.\\
+
+\textbf{Aus Übung:}\\
+
+Beweis per Induktion nach $k$. I.A. $k=2$ also Eingabe $(x_0, x_1) = (f_3, f_2)$.
+
+Im ersten durchlauf der while-Schleife wird $x_2 = x_0 \mod x_1$ berechnet. Dies ist gleich $f_3  \mod f_2$.
+
+Es gilt $f_3 = 2$ und $f_2 = 1$. Daher $x_3 = 2 \mod 1=0$. Damit ist das Abbruchkriterium erfüllt. D.h. $(k-1) = 2-1 = 1$ Durchlauf wurde benötigt.
+
+Sei $k>2$ beliebig. Wir betrachten den Aufruf des Alg. mit $(x_0, x_1) = (f_{k+2}, f_{k+1})$. Im ersten Durchlauf wird $x_2 = x_0 \mod x_1= f_{k+1} \mod f_{k+1}$ berechnet. Aus Def. der Fibonacci Zahlen folgt, dass $f_{k+2} = 1 \cdot f_{k+1} + f_k$. Damit folgt für $k>2$:
+\[
+   f_{k}>f_{k-1}: \; x_2 = f_{k+2} \mod f_{k+1} = f_k \\
+ \]
+ Im nächsten Durchlauf der Schleife wird $x_3 = f_{k+1} \mod f_k $ berechnet. Algorithmus wird auf $(x_0, x_1) = (f_{k+1}, f_k)$ angewandt.
+
+ Aus Induktionsvoraussetzung wissen wir, dass die while-Schleife $(k-1)$ mal durchlaufen wird.
+
+ Zusammen mit dem ersten Durchlauf ergeben sich dann $k$ Durchläufe, womit die Aussage bewiesen ist.
