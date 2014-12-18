@@ -16,9 +16,17 @@
     3 & 0 & 3 & 1 & 4 & 2 \\
     4 & 0 & 4 & 3 & 2 & 1 \\
     \end{tabular}
-    \item Die Auswertungsreihenfolge ist egal, dies ist an der Verknüpfungstafel leicht ersichtlich, daher haben wir Assoziativität. Kommutativität folgt aus der Symmetrie der Verknüpfungstafel gegenüber ihrer Diagonale.
+    \item Die Auswertungsreihenfolge ist egal, dies ist an der Verknüpfungstafel leicht ersichtlich, daher haben wir Assoziativität. Kommutativität folgt aus der Symmetrie der Verknüpfungstafel gegenüber ihrer Diagonale. (f)
 
-    \item Invertierbare Elemente sind 1 und $-1$
+    Aus Übung:
+    Assoziativität:
+    \begin{align*}
+      (\dbr{a} \odot \dbr{b}) \dbr{c} &= \dbr{a} \odot (\dbr{b} \odot \dbr{c}) \\
+      \iff (\dbr{a \cdot b}) \odot \dbr{c} &= \dbr{a} \odot \dbr{b \cdot c} \\
+      \iff \dbr{a \cdot b \cdot c}_n &= \dbr{a \cdot b \cdot c}_n \\
+
+    \end{align*}
+    \item Invertierbare Elemente sind \dbr{1}, \dbr{2}, \dbr{3}, \dbr{4}
 
     \end{enumerate}
 
@@ -41,8 +49,7 @@
 
     \item analog zu $\Z / 5\Z$
 
-    \item 1, $-1$, 5, $-5$
-
+    \item \dbr{1}, \dbr{5}
 
     \end{enumerate}
 
@@ -86,7 +93,49 @@ $(R, +, \cdot)$ kommutativer Ring mit $0$ als neutrales Element der Addition und
 
 
 \end{enumerate}
+\subsection*{A2 Übung}
 
+\begin{enumerate}
+  \item 2a
+    \begin{align*}
+      -a = (-1)a \\
+      = a\cdot 0 = 0\\
+      \text{abelsche Gruppe} \\
+      a + (-a) \ldots a = 0 \\
+      (-1)a \; \text{additive Inverse von $a$}\\
+      \implies (-1 a = -a) \\
+
+    \end{align*}
+    und
+
+    \item 2b
+    \begin{align*}
+      ar = a \implies r = a \; a \in R^{*}\\
+      r = 1 r = a^{-1}a r = a^{-1}a = 1\\
+    \end{align*}
+
+    \item 2d
+
+    \begin{align*}
+      ab = 0 \notimplies a+1 \lor b+1 \; \text{Einheit} \\
+      R = \Z / 6 \Z, \; a = \dbr{2}, b = \dbr{3} \; \text{Gegenbeispiel}
+    \end{align*}
+
+    \item 2e
+
+    aa = 0 $\implies$ $a \oplus 1$ ist Einheit.
+
+    $a + 1 \in R^{*}$ wenn $b \in R$ ex mit $b \odot (a+1) = 1 \lor (a+1)\odot b = 1 $. Wir wählen $b = ((-a) + 1) \in R$, da $-a \in R$ und $R$ additiv abgeschlossen.
+
+    \begin{align*}
+      (a+1)\cdot ((-a) + 1) \\
+      = a (-1) + a \cdot 1 + 1 \cdot ( -a) + 1 1 1 \\
+      = (-1) (aa) + a + (-a) \\
+      = 0 + a + (-a) + 1 = 1 \implies a + 1 \in R^{*}\\
+    \end{align*}
+
+
+\end{enumerate}
 
 
 \subsection*{Aufgabe 3}
