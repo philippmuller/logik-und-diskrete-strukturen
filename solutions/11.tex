@@ -1,0 +1,110 @@
+\section*{Blatt 11}
+%
+
+\subsection*{Aufgabe 1}
+
+Wähle $p=5$ und $q=7$. Daher $n = 5 \cdot 7 = 35$. Wir haben
+\[
+  \phi(n) = \phi(35) = \phi(5 \cdot 7) = \phi(5) \cdot \phi(7) = 6 \cdot 4 = 24
+\]
+
+Verschlüssele $n \in \{0, \ldots, 34\}$. Wähle $e = 5$ ($1 < e < \phi(35)$  und $\text{ggT}\, (5,24) = 1$).
+
+Suche $d \in \N$ so, dass $ed = 1 \mod \phi(n)$.
+\begin{center}
+\begin{tabular}{c c c
+}
+
+$d$ & $de$ & $de \; \text{mod}\; 24$ \\
+\hline
+1 & 5 & 5 \\
+2 & 10 & 10 \\
+3 & 15 & 15 \\
+4 & 20 & 20 \\
+5 & 25 & 1 \\
+6 & 30 & 6 \\
+7 & 35 & 11 \\
+& \vdots & \\
+28 & 140 & 20 \\
+29 $ (=: d) $ & 145 & 1 \\
+30 & 150 & 6 \\
+
+\end{tabular}
+\end{center}
+
+Öffentlicher Schlüssel $(n, e) = (35,5)$ \\
+Privater Schlüssel $(n,d) = (35, 29)$ \\
+
+Nachricht \texttt{FELIX} = \{ 6 5 12 9 24 \} (Nummer im Alphabet).
+
+\begin{center}
+  \begin{tabular}{ccc}
+    & x & $x^5 \mod 35$ \\
+    \hline
+    F & 6 & 6 \\
+    E & 5 & 10 \\
+    L & 12 & 17 \\
+    I & 9 & 4 \\
+    X & 24 & 19 \\
+  \end{tabular}
+\end{center}
+
+Geheimtext: \{ 6 10 17 4 19 \}
+
+\subsection*{Aufgabe 2}
+
+\[
+  \phi = ((x_1 \implies \neg x_2) \land \neg(x_3 \iff x_1))
+\]
+\textbf{b)} \\
+\begin{align*}
+  \phi = ((x_1 \implies x_2) &\land \neg ((x_3 \implies x_1) \land (x_1 \implies x_3))) && \text{Elimination der Äquivalenz} \\
+  \phi = ((\neg x_1 \lor \neg x_2) \land &\underbrace{ \neg ((\neg x_3 \lor x_1) \land (\neg x_1 \lor x_3)))} && \text{Elimination der Implikation}\\
+%
+  &= \neg (\neg x_3 \lor x_1) \lor \neg (\neg x_1 \lor x_3) && \text{De Morgan} \\
+%
+  &= (\neg \neg x_3 \land \neg x_1) \lor (\neg \neg x_1 \land \neg x_3) && \text{De Morgan} \\
+%
+  &=(x_3 \land x_1) \lor (x_1 \land \neg x_3) && \text{Elimination der doppelten Negation} \\
+%
+  \phi = ((\neg x_1 \land \geq x_2) &\land \underbrace{((x_3 \land \neg x_1) \lor (x_1 \land \neg x_3)))} && \text{(*)}\\
+%
+  &= ((x_3 \land x_1) \lor x_1) \land ((x_3 \land \neg x_1) \lor \neg x_3) \\
+%
+  &= ((x_3 \lor x_1) \land (\neg x_1 \lor x_1)) \land ((x_2 \lor \neq x_3) \land (\neg x_1 \lor \neg x_3))\\
+%
+\end{align*}
+%
+\begin{align*}
+  \phi = ((\neg x_1 \lor \neg x2) &\land ((x_3 \lor x_1) \land (\neg x_1 \lor x_1) \land ((x_3 \lor \neg x_3) \land (\neg x_1 \lor \neg x_3)))) \\
+\end{align*}
+
+Mit Abkürzungen aus Roeglin 12/13, S.84 folgt
+
+\begin{align*}
+  \phi = (\neg x_1 \lor \neg x_2) &\land (x_3 \lor x_1) \land \underbrace{(\neg x_1 \lor x_1)}_{\text{immer wahr}} \land \underbrace{(x_3 \lor \neg x_3)}_{\text{immer wahr}} \land (\neg x_1 \lor \neg x_2) \\
+  %
+  \phi = (\neg x_1 \lor \neg x_2)& \land (x_3 \lor x_1) \land (\neg x_1 \lor \neg x_3) \\
+\end{align*}
+
+\textbf{a)} Benutze $(*)$ für Wahrheitstabelle:
+
+\begin{tabular}{ccc|ccc|cc}
+$x_1$ & $x_2$ & $x_3$ & $A = (\neg x_1 \lor \neg x_2)$ & $B = (x_3 \land \neg x_1)$ & $C = (x_1 \land \neg x_3)$ & $D=(B \lor C)$ & $\phi = (A \land D)$ \\
+\hline
+
+0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\
+1 & 0 & 0 & 1 & 0 & 1 & 1 & 1 \\
+0 & 1 & 0 & 1 & 0 & 0 & 0 & 0 \\
+1 & 1 & 0 & 0 & 0 & 1 & 1 & 0 \\
+0 & 0 & 1 & 1 & 1 & 0 & 1 & 1 \\
+1 & 0 & 1 & 1 & 0 & 0 & 0 & 0 \\
+0 & 1 & 1 & 1 & 1 & 0 & 1 & 1 \\
+1 & 1 & 1 & 0 & 0 & 0 & 0 & 0 \\
+\hline
+\end{tabular}
+
+\vspace{1em}
+DNF: \[
+  (x_1 \land \neg x_2 \land \neg x_3) \lor (\neg x_1 \land \neg x_2 \land x_3) \lor (\neg x_1 \land x_2 \land x_3)
+\]
