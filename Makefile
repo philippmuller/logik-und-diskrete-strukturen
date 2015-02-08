@@ -13,4 +13,5 @@ save: $(all_sources)
 	@echo "-> running pdflatexfor $@"
 	echo "\\newcommand{\currentexercise}{$@}" > tmp.tex
 	pdflatex exercises.tex
+	mkdir -p pdfs
 	mv "exercises.pdf" "pdfs/$(addsuffix .pdf, $(basename $@))"; \
