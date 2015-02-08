@@ -13,9 +13,18 @@
 % \usepackage{newcent}
 
 % command for double brackets
-\newcommand{\dbr}[1]{$\llbracket #1 \rrbracket$}
+\newcommand{\dbr}[1]{%
+  \ifmmode
+    \llbracket #1 \rrbracket
+  \else
+    $\llbracket #1 \rrbracket$
+  \fi
+}
 
 \usepackage{tikz}
+\usepackage{xcolor}
+\newcommand\grade[1]{\textcolor{red}{#1}}
+
 \usetikzlibrary{arrows,automata}
 
 % \usepackage{mathpazo}
@@ -65,7 +74,7 @@ germandbls={ß}
 
 
 	% import solution for current sheet here
-	\subimport{solutions/}{5.tex}
+	\subimport{solutions/}{9.tex}
 
 
 
