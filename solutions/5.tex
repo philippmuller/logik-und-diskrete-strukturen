@@ -95,7 +95,7 @@ Die Zustandsüberführungsrelation $\delta'$ für $M'$ können wir auch durch fo
             $\delta'$ & $q_0$ & $q_1 q_2$ & $q_1$ & $q_1 q_3$ \\
             \hline
             $a$ &  $\{ q_1 q_2 \}$ & $ \{ q_1 q_2 \} $ & $ \{ q_1 q_2 \} $ & $ \{q_1 q_2\} $  \\
-            $b$ &  $ \{ q_1 \} $  &  $ \{q_1 q_3\} $ &  $ \{ q_1 q_2 \} $ & $ \{q_1\} $    \\
+            $b$ &  $ \{ q_1 \} $  &  $ \{ q_1 \} $ &  $ \{ q_1 q_2 \} $ & $ \{q_1\} $    \\
     \end{tabular}\\
 
 Oder als Graph:\\
@@ -111,7 +111,8 @@ Oder als Graph:\\
             (q1q2) edge [loop above] node {a} (q1q2)
                  edge  [bend left]   node {b} (q1q3)
             (q1) edge node {}       (q1)
-                 edge              node {a,b} (q1q2)
+                 edge              node {a} (q1q2)
+                 edge [loop below] node {b} (q1)
             (q1q3) edge  [bend left]  node {a} (q1q2)
                  edge              node {b} (q1);
 
