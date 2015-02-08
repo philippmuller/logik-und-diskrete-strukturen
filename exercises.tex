@@ -8,6 +8,10 @@
 \usepackage{selinput}
 
 
+\IfFileExists{tmp.tex}{\input{tmp.tex}}{}
+\providecommand{\currentexercise}{11.tex}
+
+
 % \usepackage[osf]{heuristica}
 
 % \usepackage{newcent}
@@ -74,7 +78,7 @@ germandbls={ß}
 
 
 	% import solution for current sheet here
-	\subimport{solutions/}{9.tex}
+	\subimport{solutions/}{\currentexercise}
 
 
 
