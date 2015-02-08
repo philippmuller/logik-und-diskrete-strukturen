@@ -1,10 +1,8 @@
 SHELL := /bin/bash
-ex=11
-all: exercises.tex
-	echo "\\newcommand{\currentexercise}{$(ex).tex}" > tmp.tex
-	pdflatex exercises.tex
-	open exercises.pdf
+new_path="pdfs/$(ex).pdf"
 
+all: $(ex).tex
+	open "$(new_path)"
 
 all_sources=$(shell basename solutions/*.tex)
 save: $(all_sources)
