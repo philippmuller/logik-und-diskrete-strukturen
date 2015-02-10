@@ -53,8 +53,9 @@ docs/_build/
 # PyBuilder
 target/
 
-
-
 exercises.pdf
 pdfs
 tmp.tex
+
+alte_klausuren
+other_solutions
